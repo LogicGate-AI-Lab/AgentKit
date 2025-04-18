@@ -1,3 +1,6 @@
+This Module is developed based on OpenManus:
+- https://github.com/mannaandpoem/OpenManus
+
 # WenCFO Agent & OpenManus 系统整合文档
 
 ## 抽象理解

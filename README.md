@@ -1,88 +1,82 @@
-注意：在config文件和backend/main.py中都直接硬编码了api-key
 
-## 本地开发启动流程
+# AgentKit
 
-### 原内核部分
+**AgentKit** is an extensible AI Agent infrastructure framework designed for developers to rapidly build, customize, and deploy tool-augmented agents. It includes example functionalities focused on **financial** and **pharmaceutical** domains to demonstrate real-world applications.
 
-请在根目录下运行程序，以防止找不到文件
+---
 
-1、启动FastAPI后端：
+## 📁 Project Structure
 
-首先进入wencfo conda env
-
-然后启动：
-```bash
-uvicorn backend.main:app --host 127.0.0.1 --port 8000
+```
+AgentKit/
+│
+├── app/            # Main entry point with Gradio-based frontend interface
+│
+├── key/            # API key configuration for LLM (e.g., OpenAI or DeepSeek)
+│
+└── open_manus/     # The OpenManus toolchain used for agent operations
 ```
 
-2、启动前端页面：
-`index.html` => open live server
+---
 
-### Manus模组部分
+## ✨ Features
 
-```bash
-### Run OpenManus
-python -m open_manus.main
+- ✅ **LLM-Powered Dialogue Agent**  
+  Built on top of large language models (LLMs) such as [DeepSeek](https://www.deepseek.com/) or OpenAI GPT. Supports multi-turn conversations and instruction following.
 
-### MCP tool version, run:
-python run_mcp.py
+- 🧰 **Tool-Augmented Reasoning**  
+  Automatically detects when a tool is needed and routes the request to the `OpenManus` toolchain. Tools include:
+  - Web search & browser automation
+  - Report downloading & parsing
+  - Financial calculations & document analysis
 
-### unstable multi-agent version, run:
-python run_flow.py
-```
+- 🌐 **Web Interface with Gradio**  
+  Clean UI for chat interaction. Includes real-time streaming output and tool execution status updates.
 
-## 依赖环境和组件
+- 🧾 **Finance & Pharma Use Cases**  
+  Example prompts and system behavior customized for financial analysts and pharma researchers.
 
-python=3.12, conda: wencfo in wsl ubuntu22.04
+- 🪵 **Detailed Logging**  
+  Rich log system with file rotation, separated logs for LLM and tools, and real-time debugging support.
 
-### OpenManus内核
+---
 
-配置文件：config.toml
+## 🚀 Quick Start
 
-浏览器内核：playwright install
-
-
-### DeepSeek API 相关
-
-先安装OpenManus内核，然后安装以下组件：
+**1. Clone the Repository**
 
 ```bash
-pip install fastapi        # FastAPI 框架
-pip install "uvicorn[standard]"    # 用于启动 FastAPI 服务器
-pip install openai                 # OpenAI API 客户端
-pip install slowapi                # 用于速率限制
-pip install python-multipart       # FastAPI 上传文件依赖
+git clone https://github.com/yourname/AgentKit.git
+cd AgentKit
 ```
 
-### 自动化Web浏览器的Python库
+**2. Install Requirements**
+
+Recommend using conda to manage pip packages.
 
 ```bash
-pip install playwright
-playwright install # 安装所有支持的浏览器，包括Chromium
-playwright install --dry-run # 查看浏览器信息
+pip install -r requirements.txt
+cd open_manus
+pip install -r requirements.txt
 ```
 
+**3. Configure Your API Keys**
 
-## 项目开发进度
+Create or modify the file `key/key.py` with your API credentials:
 
-### 目标
+```python
+MAIN_APP_KEY = "your-openai-or-deepseek-api-key"
+MAIN_APP_URL = "https://api.deepseek.com/v1"  # or OpenAI base URL
+```
 
-25年3月23日开始开发第一版，第一版的目标是实现财务工具使用功能、回答财务知识、构建财务知识库等。
+Also modify the file `key/manus_config/config.toml`
 
-在没有财务知识库，仅仅调用API的时候，可以看到CFO的回答能力很差，无法回答专业的财务问题：
+**4. Run the Application**
 
-![alt text](docs/readme/V1/1.png)
+```bash
+python3 -m app
+```
 
-### BUG
+Recommend using vscode to run, vscode can guide you open the browser, also you can visit [http://localhost:7860](http://localhost:7860) in your browser.
 
-1、整个流程还是存在含糊的地方，缺乏清晰的链路
-
-2、pdf文件分析的还不错，但是log中的分析结果并没有出现在最终保存的md文件中
-
-更新：找到了正确的分析结果，似乎不是pdf文件分析保存的？保存在了根目录/workspace下面，可能是另一个工具保存的。
-
-3、用browser浏览器浏览网页的时候，如果找不到下载pdf的地方，就会一直找，直到超时
-
-4、还没找到让browser可视化（看到操作过程）的方法
-
-5、前端界面只能做到把内容发送给manus，但是无法持续显示结果。这里可能要把前端和后端的内容都修改一下。
+---
