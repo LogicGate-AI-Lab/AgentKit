@@ -1,4 +1,3 @@
-
 # AgentKit
 
 **AgentKit** is an extensible AI Agent infrastructure framework designed for developers to rapidly build, customize, and deploy tool-augmented agents. It includes example functionalities focused on **financial** and **pharmaceutical** domains to demonstrate real-world applications.

@@ -1,0 +1,116 @@
+2025-04-17 22:45:41.324 | INFO     | open_manus.app.agent.manus:set_progress_callback:58 - Progress callback set for Manus agent
+2025-04-17 22:45:41.324 | INFO     | open_manus.app.agent.base:run:141 - Executing step 1/20
+2025-04-17 22:45:46.717 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=2427, Completion=31, Cumulative Input=2427, Cumulative Completion=31, Total=2458, Cumulative Total=2458
+2025-04-17 22:45:46.717 | INFO     | open_manus.app.agent.toolcall:think:106 - ✨ Manus's thoughts: 
+2025-04-17 22:45:46.717 | INFO     | open_manus.app.agent.toolcall:think:107 - 🛠️ Manus selected 1 tools to use
+2025-04-17 22:45:46.718 | INFO     | open_manus.app.agent.toolcall:think:111 - 🧰 Tools being prepared: ['browser_use']
+2025-04-17 22:45:46.718 | INFO     | open_manus.app.agent.toolcall:think:114 - 🔧 Tool arguments: {"action":"web_search","query":"Attention Is All You Need paper PDF"}
+2025-04-17 22:45:46.719 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Starting tool execution
+2025-04-17 22:45:46.719 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Starting tool execution
+2025-04-17 22:45:46.719 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Starting execution of browser_use
+2025-04-17 22:45:46.719 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Starting execution of browser_use
+2025-04-17 22:45:46.719 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Executing with arguments: {'action': 'web_search', 'query': 'Attention Is All You Need paper PDF'}
+2025-04-17 22:45:46.719 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Executing with arguments: {'action': 'web_search', 'query': 'Attention Is All You Need paper PDF'}
+2025-04-17 22:45:46.720 | INFO     | open_manus.app.agent.toolcall:execute_tool:256 - 🔧 Activating tool: 'browser_use'...
+2025-04-17 22:45:47.029 | INFO     | open_manus.app.tool.web_search:_try_all_engines:299 - 🔎 Attempting search with Google...
+2025-04-17 22:45:49.213 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Completed execution of browser_use
+2025-04-17 22:45:49.214 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Completed execution of browser_use
+2025-04-17 22:45:49.214 | INFO     | open_manus.app.agent.toolcall:act:202 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Error: Browser action 'web_search' failed: Page.goto: net::ERR_ABORTED at https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf
+Call log:
+  - navigating to "https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf", waiting until "load"
+
+2025-04-17 22:45:49.214 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Tool execution completed
+2025-04-17 22:45:49.214 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Tool execution completed
+2025-04-17 22:45:49.214 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Generating summary of results
+2025-04-17 22:45:49.214 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Generating summary of results
+2025-04-17 22:45:49.214 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Generating summary of tool results
+2025-04-17 22:45:49.215 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Generating summary of tool results
+2025-04-17 22:45:54.724 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=138, Completion=62, Cumulative Input=2565, Cumulative Completion=93, Total=200, Cumulative Total=2658
+2025-04-17 22:45:54.725 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Summary generation complete
+2025-04-17 22:45:54.725 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Summary generation complete
+2025-04-17 22:45:54.725 | INFO     | open_manus.app.agent.base:run:141 - Executing step 2/20
+2025-04-17 22:45:55.030 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:45:55.030 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:45:56.341 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:45:56.341 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:45:57.716 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:45:57.716 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:46:01.128 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:46:01.128 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:46:08.974 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:46:08.974 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:46:19.439 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:46:19.439 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:46:19.440 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:46:19.440 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Starting resource cleanup
+2025-04-17 22:46:19.638 | INFO     | open_manus.app.agent.toolcall:cleanup:351 - 🧹 Cleaning up resources for agent 'Manus'...
+2025-04-17 22:46:19.639 | DEBUG    | open_manus.app.agent.toolcall:cleanup:357 - 🧼 Cleaning up tool: browser_use
+2025-04-17 22:46:19.639 | INFO     | open_manus.app.agent.toolcall:cleanup:363 - ✨ Cleanup complete for agent 'Manus'.
+2025-04-17 22:46:19.639 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Resource cleanup complete
+2025-04-17 22:46:19.639 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Resource cleanup complete
+2025-04-17 22:46:19.641 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:46:19.641 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Starting resource cleanup
+2025-04-17 22:46:19.641 | INFO     | open_manus.app.agent.toolcall:cleanup:351 - 🧹 Cleaning up resources for agent 'Manus'...
+2025-04-17 22:46:19.641 | DEBUG    | open_manus.app.agent.toolcall:cleanup:357 - 🧼 Cleaning up tool: browser_use
+2025-04-17 22:46:19.641 | INFO     | open_manus.app.agent.toolcall:cleanup:363 - ✨ Cleanup complete for agent 'Manus'.
+2025-04-17 22:46:19.641 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Resource cleanup complete
+2025-04-17 22:46:19.641 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Resource cleanup complete
+2025-04-17 22:47:31.056 | INFO     | open_manus.app.agent.manus:set_progress_callback:58 - Progress callback set for Manus agent
+2025-04-17 22:47:31.057 | INFO     | open_manus.app.agent.base:run:141 - Executing step 1/20
+2025-04-17 22:47:35.983 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=2429, Completion=32, Cumulative Input=4994, Cumulative Completion=125, Total=2461, Cumulative Total=5119
+2025-04-17 22:47:35.983 | INFO     | open_manus.app.agent.toolcall:think:106 - ✨ Manus's thoughts: 
+2025-04-17 22:47:35.984 | INFO     | open_manus.app.agent.toolcall:think:107 - 🛠️ Manus selected 1 tools to use
+2025-04-17 22:47:35.984 | INFO     | open_manus.app.agent.toolcall:think:111 - 🧰 Tools being prepared: ['browser_use']
+2025-04-17 22:47:35.984 | INFO     | open_manus.app.agent.toolcall:think:114 - 🔧 Tool arguments: {"action":"web_search","query":"Playing Atari with Deep Reinforcement Learning PDF"}
+2025-04-17 22:47:35.984 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Starting tool execution
+2025-04-17 22:47:35.984 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Starting tool execution
+2025-04-17 22:47:35.984 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Starting execution of browser_use
+2025-04-17 22:47:35.984 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Starting execution of browser_use
+2025-04-17 22:47:35.984 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Executing with arguments: {'action': 'web_search', 'query': 'Playing Atari with Deep Reinforcement Learning PDF'}
+2025-04-17 22:47:35.984 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Executing with arguments: {'action': 'web_search', 'query': 'Playing Atari with Deep Reinforcement Learning PDF'}
+2025-04-17 22:47:35.985 | INFO     | open_manus.app.agent.toolcall:execute_tool:256 - 🔧 Activating tool: 'browser_use'...
+2025-04-17 22:47:36.349 | INFO     | open_manus.app.tool.web_search:_try_all_engines:299 - 🔎 Attempting search with Google...
+2025-04-17 22:47:37.202 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Completed execution of browser_use
+2025-04-17 22:47:37.202 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Completed execution of browser_use
+2025-04-17 22:47:37.202 | INFO     | open_manus.app.agent.toolcall:act:202 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Error: Browser action 'web_search' failed: Page.goto: net::ERR_ABORTED at https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf
+Call log:
+  - navigating to "https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf", waiting until "load"
+
+2025-04-17 22:47:37.203 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Tool execution completed
+2025-04-17 22:47:37.203 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Tool execution completed
+2025-04-17 22:47:37.203 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Generating summary of results
+2025-04-17 22:47:37.203 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Generating summary of results
+2025-04-17 22:47:37.203 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Generating summary of tool results
+2025-04-17 22:47:37.203 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Generating summary of tool results
+2025-04-17 22:47:44.346 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=128, Completion=82, Cumulative Input=5122, Cumulative Completion=207, Total=210, Cumulative Total=5329
+2025-04-17 22:47:44.346 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Summary generation complete
+2025-04-17 22:47:44.346 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Summary generation complete
+2025-04-17 22:47:44.347 | INFO     | open_manus.app.agent.base:run:141 - Executing step 2/20
+2025-04-17 22:47:44.654 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:47:44.655 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:47:45.951 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:47:45.951 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:47:48.086 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:47:48.087 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:47:51.112 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:47:51.113 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:47:59.868 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:47:59.868 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:48:05.243 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:48:05.243 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:48:05.244 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:48:05.244 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Starting resource cleanup
+2025-04-17 22:48:05.435 | INFO     | open_manus.app.agent.toolcall:cleanup:351 - 🧹 Cleaning up resources for agent 'Manus'...
+2025-04-17 22:48:05.436 | DEBUG    | open_manus.app.agent.toolcall:cleanup:357 - 🧼 Cleaning up tool: browser_use
+2025-04-17 22:48:05.436 | INFO     | open_manus.app.agent.toolcall:cleanup:363 - ✨ Cleanup complete for agent 'Manus'.
+2025-04-17 22:48:05.436 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Resource cleanup complete
+2025-04-17 22:48:05.436 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Resource cleanup complete
+2025-04-17 22:48:05.436 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:48:05.436 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Starting resource cleanup
+2025-04-17 22:48:05.437 | INFO     | open_manus.app.agent.toolcall:cleanup:351 - 🧹 Cleaning up resources for agent 'Manus'...
+2025-04-17 22:48:05.437 | DEBUG    | open_manus.app.agent.toolcall:cleanup:357 - 🧼 Cleaning up tool: browser_use
+2025-04-17 22:48:05.437 | INFO     | open_manus.app.agent.toolcall:cleanup:363 - ✨ Cleanup complete for agent 'Manus'.
+2025-04-17 22:48:05.437 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Resource cleanup complete
+2025-04-17 22:48:05.437 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Resource cleanup complete

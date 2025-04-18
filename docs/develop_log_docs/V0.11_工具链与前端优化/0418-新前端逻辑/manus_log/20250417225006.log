@@ -1,0 +1,45 @@
+2025-04-17 22:50:48.941 | INFO     | open_manus.app.agent.manus:set_progress_callback:58 - Progress callback set for Manus agent
+2025-04-17 22:50:48.941 | INFO     | open_manus.app.agent.base:run:141 - Executing step 1/20
+2025-04-17 22:50:53.567 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=2433, Completion=31, Cumulative Input=2433, Cumulative Completion=31, Total=2464, Cumulative Total=2464
+2025-04-17 22:50:53.568 | INFO     | open_manus.app.agent.toolcall:think:106 - ✨ Manus's thoughts: 
+2025-04-17 22:50:53.568 | INFO     | open_manus.app.agent.toolcall:think:107 - 🛠️ Manus selected 1 tools to use
+2025-04-17 22:50:53.568 | INFO     | open_manus.app.agent.toolcall:think:111 - 🧰 Tools being prepared: ['browser_use']
+2025-04-17 22:50:53.568 | INFO     | open_manus.app.agent.toolcall:think:114 - 🔧 Tool arguments: {"action":"web_search","query":"Attention Is All You Need paper PDF"}
+2025-04-17 22:50:53.570 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Starting tool execution
+2025-04-17 22:50:53.570 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Starting tool execution
+2025-04-17 22:50:53.570 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Starting execution of browser_use
+2025-04-17 22:50:53.570 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Starting execution of browser_use
+2025-04-17 22:50:53.570 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Executing with arguments: {'action': 'web_search', 'query': 'Attention Is All You Need paper PDF'}
+2025-04-17 22:50:53.571 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Executing with arguments: {'action': 'web_search', 'query': 'Attention Is All You Need paper PDF'}
+2025-04-17 22:50:53.571 | INFO     | open_manus.app.agent.toolcall:execute_tool:269 - 🔧 Activating tool: 'browser_use'...
+2025-04-17 22:50:53.865 | INFO     | open_manus.app.tool.web_search:_try_all_engines:299 - 🔎 Attempting search with Google...
+2025-04-17 22:50:56.028 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Completed execution of browser_use
+2025-04-17 22:50:56.029 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Completed execution of browser_use
+2025-04-17 22:50:56.029 | INFO     | open_manus.app.agent.toolcall:act:202 - 🎯 Tool 'browser_use' completed. Result: Observed output of cmd `browser_use` executed:
+Error: Browser action 'web_search' failed: Page.goto: net::ERR_ABORTED at https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf
+Call log:
+  - navigating to "https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf", waiting until "load"
+
+2025-04-17 22:50:56.029 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Tool execution completed
+2025-04-17 22:50:56.029 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Tool execution completed
+2025-04-17 22:50:56.029 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Generating summary
+2025-04-17 22:50:56.029 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Generating summary
+2025-04-17 22:50:56.029 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Generating summary of tool results
+2025-04-17 22:50:56.029 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Generating summary of tool results
+2025-04-17 22:51:03.485 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=138, Completion=65, Cumulative Input=2571, Cumulative Completion=96, Total=203, Cumulative Total=2667
+2025-04-17 22:51:03.486 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Summary generation complete
+2025-04-17 22:51:03.486 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Summary generation complete
+2025-04-17 22:51:03.486 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:51:03.486 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Starting resource cleanup
+2025-04-17 22:51:03.685 | INFO     | open_manus.app.agent.toolcall:cleanup:364 - 🧹 Cleaning up resources for agent 'Manus'...
+2025-04-17 22:51:03.685 | DEBUG    | open_manus.app.agent.toolcall:cleanup:370 - 🧼 Cleaning up tool: browser_use
+2025-04-17 22:51:03.685 | INFO     | open_manus.app.agent.toolcall:cleanup:376 - ✨ Cleanup complete for agent 'Manus'.
+2025-04-17 22:51:03.685 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Resource cleanup complete
+2025-04-17 22:51:03.686 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Resource cleanup complete
+2025-04-17 22:51:03.686 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:51:03.686 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Starting resource cleanup
+2025-04-17 22:51:03.686 | INFO     | open_manus.app.agent.toolcall:cleanup:364 - 🧹 Cleaning up resources for agent 'Manus'...
+2025-04-17 22:51:03.686 | DEBUG    | open_manus.app.agent.toolcall:cleanup:370 - 🧼 Cleaning up tool: browser_use
+2025-04-17 22:51:03.686 | INFO     | open_manus.app.agent.toolcall:cleanup:376 - ✨ Cleanup complete for agent 'Manus'.
+2025-04-17 22:51:03.686 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Resource cleanup complete
+2025-04-17 22:51:03.686 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Resource cleanup complete

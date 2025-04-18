@@ -1,0 +1,1027 @@
+2025-04-17 22:30:52.137 | INFO     | open_manus.app.agent.manus:set_progress_callback:58 - Progress callback set for Manus agent
+2025-04-17 22:30:52.137 | INFO     | open_manus.app.agent.base:run:141 - Executing step 1/20
+2025-04-17 22:30:57.589 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=2439, Completion=40, Cumulative Input=2439, Cumulative Completion=40, Total=2479, Cumulative Total=2479
+2025-04-17 22:30:57.589 | INFO     | open_manus.app.agent.toolcall:think:106 - ✨ Manus's thoughts: 
+2025-04-17 22:30:57.590 | INFO     | open_manus.app.agent.toolcall:think:107 - 🛠️ Manus selected 1 tools to use
+2025-04-17 22:30:57.590 | INFO     | open_manus.app.agent.toolcall:think:111 - 🧰 Tools being prepared: ['browser_use']
+2025-04-17 22:30:57.590 | INFO     | open_manus.app.agent.toolcall:think:114 - 🔧 Tool arguments: {"action":"web_search","query":"Playing Atari with Deep Reinforcement Learning Mnih et al. 2013 PDF"}
+2025-04-17 22:30:57.590 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Starting tool execution
+2025-04-17 22:30:57.591 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Starting tool execution
+2025-04-17 22:30:57.591 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Starting execution of browser_use
+2025-04-17 22:30:57.591 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Starting execution of browser_use
+2025-04-17 22:30:57.591 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Executing with arguments: {'action': 'web_search', 'query': 'Playing Atari with Deep Reinforcement Learning Mnih et al. 2013 PDF'}
+2025-04-17 22:30:57.591 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Executing with arguments: {'action': 'web_search', 'query': 'Playing Atari with Deep Reinforcement Learning Mnih et al. 2013 PDF'}
+2025-04-17 22:30:57.591 | INFO     | open_manus.app.agent.toolcall:execute_tool:267 - 🔧 Activating tool: 'browser_use'...
+2025-04-17 22:30:58.345 | INFO     | open_manus.app.tool.web_search:_try_all_engines:299 - 🔎 Attempting search with Google...
+2025-04-17 22:30:59.482 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Completed execution of browser_use
+2025-04-17 22:30:59.482 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Completed execution of browser_use
+2025-04-17 22:30:59.482 | INFO     | open_manus.app.agent.toolcall:act:213 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Search results for 'Playing Atari with Deep Reinforcement Learning Mnih et al. 2013 PDF':
+
+1. [1312.5602] Playing Atari with Deep Reinforcement Learning - arXiv
+   URL: https://arxiv.org/abs/1312.5602
+   Description:  Dec 19, 2013  ·  View a PDF of the paper titled Playing Atari with Deep Reinforcement Learning, by Volodymyr Mnih and 6 other authors. View PDF. Abstract:We ... 
+   Content: [1312.5602] Playing Atari with Deep Reinforcement Learning Computer Science > Machine Learning arXiv:1312.5602 (cs) [Submitted on 19 Dec 2013] Title: Playing Atari with Deep Reinforcement Learning Authors: Volodymyr Mnih , Koray Kavukcuoglu , David Silver , Alex Graves , Ioannis Antonoglou , Daan Wierstra , Martin Riedmiller View a PDF of the paper titled Playing Atari with Deep Reinforcement Learning, by Volodymyr Mnih and 6 other authors View PDF Abstract: We present the first deep learning model to successfully learn control policies directly from high-dimensional sensory input using reinforcement learning. The model is a convolutional neural network, trained with a variant of Q-learning, whose input is raw pixels and whose output is a value function estimating future rewards. We apply our method to seven Atari 2600 games from the Arcade Learning Environment, with no adjustment of the architecture or learning algorithm. We find that it outperforms all previous approaches on six of t...
+
+Metadata:
+- Total results: 1
+- Language: en
+- Country: us
+2025-04-17 22:30:59.482 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Tool execution completed
+2025-04-17 22:30:59.482 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Tool execution completed
+2025-04-17 22:30:59.482 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Generating summary of results
+2025-04-17 22:30:59.482 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Generating summary of results
+2025-04-17 22:30:59.482 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Generating summary of tool results
+2025-04-17 22:30:59.482 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Generating summary of tool results
+2025-04-17 22:31:00.295 | ERROR    | open_manus.app.llm:ask:544 - OpenAI API error
+Traceback (most recent call last):
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f4efe131440>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f4efe131120>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    │        │    └ ()
+    │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    └ <bound method Server.run of <gradio.http_server.Server object at 0x7f4e90170ce0>>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ None
+           │       │   │    └ <function Server.serve at 0x7f4e947c6480>
+           │       │   └ <gradio.http_server.Server object at 0x7f4e90170ce0>
+           │       └ <function run at 0x7f4efd8fba60>
+           └ <module 'asyncio' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/__init__.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7f4e901e7140>
+           │      └ <function Runner.run at 0x7f4efd77cf40>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7f4e90071970>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/queueing.py", line 715, in process_events
+    response = await route_utils.call_process_api(
+                     │           └ <function call_process_api at 0x7f4ea8bdce00>
+                     └ <module 'gradio.route_utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py", line 322, in call_process_api
+    output = await app.get_blocks().process_api(
+                   │   └ <function App.get_blocks at 0x7f4ea8a3a700>
+                   └ <gradio.routes.App object at 0x7f4e904eab10>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 2137, in process_api
+    result = await self.call_function(
+                   │    └ <function Blocks.call_function at 0x7f4ea89640e0>
+                   └ Gradio Blocks instance: 9 backend functions
+                     -------------------------------------------
+                     fn_index=0
+                      inputs:
+                      |-<gradio.compon...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 1675, in call_function
+    prediction = await utils.async_iteration(iterator)
+                       │     │               └ <async_generator object respond at 0x7f4e900d5cf0>
+                       │     └ <function async_iteration at 0x7f4ea8bc04a0>
+                       └ <module 'gradio.utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 735, in async_iteration
+    return await anext(iterator)
+                       └ <async_generator object respond at 0x7f4e900d5cf0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 840, in asyncgen_wrapper
+    response = await iterator.__anext__()
+                     │        └ <slot wrapper '__anext__' of 'async_generator' objects>
+                     └ <async_generator object respond at 0x7f4e91cbaa40>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 950, in respond
+    async for updated_conv, _debug, is_generating in chat_with_cfo(conversation, user_message):
+              │             │       │                │             │             └ 'can you help me find a pdf and download it? it is a paper about AI, and its name is  like this kind of: Use Reinforcement to...
+              │             │       │                │             └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+              │             │       │                └ <function chat_with_cfo at 0x7f4e90da23e0>
+              │             │       └ True
+              │             └ ''
+              └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 633, in chat_with_cfo
+    tools_result = await ToolsProcessor.process_tools_request_async_with_progress(
+                         │              └ <staticmethod(<function ToolsProcessor.process_tools_request_async_with_progress at 0x7f4e90da2700>)>
+                         └ <class '__main__.ToolsProcessor'>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 335, in process_tools_request_async_with_progress
+    result = await agent.run(content)
+                   │     │   └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+                   │     └ <function ToolCallAgent.run at 0x7f4e961dd620>
+                   └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 380, in run
+    result = await super().run(request)
+                               └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/base.py", line 142, in run
+    step_result = await self.step()
+                        │    └ <function ReActAgent.step at 0x7f4e96679260>
+                        └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/react.py", line 39, in step
+    return await self.act()
+                 │    └ <function ToolCallAgent.act at 0x7f4e961dd1c0>
+                 └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 233, in act
+    summary = await self.summarize_tool_results(command.function.name, result)
+                    │    │                      │       │        │     └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                    │    │                      │       │        └ 'browser_use'
+                    │    │                      │       └ Function(arguments='{"action":"web_search","query":"Playing Atari with Deep Reinforcement Learning Mnih et al. 2013 PDF"}', n...
+                    │    │                      └ ChatCompletionMessageToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', function=Function(arguments='{"action":"web_s...
+                    │    └ <function Manus.summarize_tool_results at 0x7f4e920bbce0>
+                    └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/manus.py", line 111, in summarize_tool_results
+    summary = await super().summarize_tool_results(tool_name, result)
+                                                   │          └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                                                   └ 'browser_use'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 172, in summarize_tool_results
+    response = await self.llm.ask(
+                     │    │   └ <function LLM.ask at 0x7f4e96765ee0>
+                     │    └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+                     └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                 │    │    └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                 │    └ <function LLM.ask at 0x7f4e96765c60>
+                 └ <AsyncRetrying object at 0x7f4e881b22a0 (stop=<tenacity.stop.stop_after_attempt object at 0x7f4e9674bec0>, wait=<tenacity.wai...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                   │   └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                   └ <function LLM.ask at 0x7f4e96765c60>
+
+> File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/llm.py", line 496, in ask
+    response = await self.client.chat.completions.create(
+                     │    │      │    │           └ <function AsyncCompletions.create at 0x7f4e97043d80>
+                     │    │      │    └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+                     │    │      └ <openai.resources.chat.chat.AsyncChat object at 0x7f4e8851c560>
+                     │    └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+                     └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2000, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f4e8851f380>>
+                 └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1767, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ False
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', params={}, headers=NOT_GIVEN, max_retries=NOT_GIVEN, timeout=NOT_...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f4e9753a480>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1461, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f4e9753a520>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1562, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f4e9752f600>
+          └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+
+openai.BadRequestError: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:00.328 | ERROR    | open_manus.app.llm:ask:550 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:01.650 | ERROR    | open_manus.app.llm:ask:544 - OpenAI API error
+Traceback (most recent call last):
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f4efe131440>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f4efe131120>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    │        │    └ ()
+    │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    └ <bound method Server.run of <gradio.http_server.Server object at 0x7f4e90170ce0>>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ None
+           │       │   │    └ <function Server.serve at 0x7f4e947c6480>
+           │       │   └ <gradio.http_server.Server object at 0x7f4e90170ce0>
+           │       └ <function run at 0x7f4efd8fba60>
+           └ <module 'asyncio' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/__init__.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7f4e901e7140>
+           │      └ <function Runner.run at 0x7f4efd77cf40>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7f4e90071970>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/queueing.py", line 715, in process_events
+    response = await route_utils.call_process_api(
+                     │           └ <function call_process_api at 0x7f4ea8bdce00>
+                     └ <module 'gradio.route_utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py", line 322, in call_process_api
+    output = await app.get_blocks().process_api(
+                   │   └ <function App.get_blocks at 0x7f4ea8a3a700>
+                   └ <gradio.routes.App object at 0x7f4e904eab10>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 2137, in process_api
+    result = await self.call_function(
+                   │    └ <function Blocks.call_function at 0x7f4ea89640e0>
+                   └ Gradio Blocks instance: 9 backend functions
+                     -------------------------------------------
+                     fn_index=0
+                      inputs:
+                      |-<gradio.compon...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 1675, in call_function
+    prediction = await utils.async_iteration(iterator)
+                       │     │               └ <async_generator object respond at 0x7f4e900d5cf0>
+                       │     └ <function async_iteration at 0x7f4ea8bc04a0>
+                       └ <module 'gradio.utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 735, in async_iteration
+    return await anext(iterator)
+                       └ <async_generator object respond at 0x7f4e900d5cf0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 840, in asyncgen_wrapper
+    response = await iterator.__anext__()
+                     │        └ <slot wrapper '__anext__' of 'async_generator' objects>
+                     └ <async_generator object respond at 0x7f4e91cbaa40>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 950, in respond
+    async for updated_conv, _debug, is_generating in chat_with_cfo(conversation, user_message):
+              │             │       │                │             │             └ 'can you help me find a pdf and download it? it is a paper about AI, and its name is  like this kind of: Use Reinforcement to...
+              │             │       │                │             └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+              │             │       │                └ <function chat_with_cfo at 0x7f4e90da23e0>
+              │             │       └ True
+              │             └ ''
+              └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 633, in chat_with_cfo
+    tools_result = await ToolsProcessor.process_tools_request_async_with_progress(
+                         │              └ <staticmethod(<function ToolsProcessor.process_tools_request_async_with_progress at 0x7f4e90da2700>)>
+                         └ <class '__main__.ToolsProcessor'>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 335, in process_tools_request_async_with_progress
+    result = await agent.run(content)
+                   │     │   └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+                   │     └ <function ToolCallAgent.run at 0x7f4e961dd620>
+                   └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 380, in run
+    result = await super().run(request)
+                               └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/base.py", line 142, in run
+    step_result = await self.step()
+                        │    └ <function ReActAgent.step at 0x7f4e96679260>
+                        └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/react.py", line 39, in step
+    return await self.act()
+                 │    └ <function ToolCallAgent.act at 0x7f4e961dd1c0>
+                 └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 233, in act
+    summary = await self.summarize_tool_results(command.function.name, result)
+                    │    │                      │       │        │     └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                    │    │                      │       │        └ 'browser_use'
+                    │    │                      │       └ Function(arguments='{"action":"web_search","query":"Playing Atari with Deep Reinforcement Learning Mnih et al. 2013 PDF"}', n...
+                    │    │                      └ ChatCompletionMessageToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', function=Function(arguments='{"action":"web_s...
+                    │    └ <function Manus.summarize_tool_results at 0x7f4e920bbce0>
+                    └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/manus.py", line 111, in summarize_tool_results
+    summary = await super().summarize_tool_results(tool_name, result)
+                                                   │          └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                                                   └ 'browser_use'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 172, in summarize_tool_results
+    response = await self.llm.ask(
+                     │    │   └ <function LLM.ask at 0x7f4e96765ee0>
+                     │    └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+                     └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                 │    │    └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                 │    └ <function LLM.ask at 0x7f4e96765c60>
+                 └ <AsyncRetrying object at 0x7f4e881b22a0 (stop=<tenacity.stop.stop_after_attempt object at 0x7f4e9674bec0>, wait=<tenacity.wai...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                   │   └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                   └ <function LLM.ask at 0x7f4e96765c60>
+
+> File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/llm.py", line 496, in ask
+    response = await self.client.chat.completions.create(
+                     │    │      │    │           └ <function AsyncCompletions.create at 0x7f4e97043d80>
+                     │    │      │    └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+                     │    │      └ <openai.resources.chat.chat.AsyncChat object at 0x7f4e8851c560>
+                     │    └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+                     └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2000, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f4e8851f380>>
+                 └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1767, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ False
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', params={}, headers=NOT_GIVEN, max_retries=NOT_GIVEN, timeout=NOT_...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f4e9753a480>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1461, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f4e9753a520>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1562, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f4e9752f600>
+          └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+
+openai.BadRequestError: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:01.659 | ERROR    | open_manus.app.llm:ask:550 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:03.419 | ERROR    | open_manus.app.llm:ask:544 - OpenAI API error
+Traceback (most recent call last):
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f4efe131440>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f4efe131120>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    │        │    └ ()
+    │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    └ <bound method Server.run of <gradio.http_server.Server object at 0x7f4e90170ce0>>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ None
+           │       │   │    └ <function Server.serve at 0x7f4e947c6480>
+           │       │   └ <gradio.http_server.Server object at 0x7f4e90170ce0>
+           │       └ <function run at 0x7f4efd8fba60>
+           └ <module 'asyncio' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/__init__.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7f4e901e7140>
+           │      └ <function Runner.run at 0x7f4efd77cf40>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7f4e90071970>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/queueing.py", line 715, in process_events
+    response = await route_utils.call_process_api(
+                     │           └ <function call_process_api at 0x7f4ea8bdce00>
+                     └ <module 'gradio.route_utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py", line 322, in call_process_api
+    output = await app.get_blocks().process_api(
+                   │   └ <function App.get_blocks at 0x7f4ea8a3a700>
+                   └ <gradio.routes.App object at 0x7f4e904eab10>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 2137, in process_api
+    result = await self.call_function(
+                   │    └ <function Blocks.call_function at 0x7f4ea89640e0>
+                   └ Gradio Blocks instance: 9 backend functions
+                     -------------------------------------------
+                     fn_index=0
+                      inputs:
+                      |-<gradio.compon...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 1675, in call_function
+    prediction = await utils.async_iteration(iterator)
+                       │     │               └ <async_generator object respond at 0x7f4e900d5cf0>
+                       │     └ <function async_iteration at 0x7f4ea8bc04a0>
+                       └ <module 'gradio.utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 735, in async_iteration
+    return await anext(iterator)
+                       └ <async_generator object respond at 0x7f4e900d5cf0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 840, in asyncgen_wrapper
+    response = await iterator.__anext__()
+                     │        └ <slot wrapper '__anext__' of 'async_generator' objects>
+                     └ <async_generator object respond at 0x7f4e91cbaa40>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 950, in respond
+    async for updated_conv, _debug, is_generating in chat_with_cfo(conversation, user_message):
+              │             │       │                │             │             └ 'can you help me find a pdf and download it? it is a paper about AI, and its name is  like this kind of: Use Reinforcement to...
+              │             │       │                │             └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+              │             │       │                └ <function chat_with_cfo at 0x7f4e90da23e0>
+              │             │       └ True
+              │             └ ''
+              └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 633, in chat_with_cfo
+    tools_result = await ToolsProcessor.process_tools_request_async_with_progress(
+                         │              └ <staticmethod(<function ToolsProcessor.process_tools_request_async_with_progress at 0x7f4e90da2700>)>
+                         └ <class '__main__.ToolsProcessor'>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 335, in process_tools_request_async_with_progress
+    result = await agent.run(content)
+                   │     │   └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+                   │     └ <function ToolCallAgent.run at 0x7f4e961dd620>
+                   └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 380, in run
+    result = await super().run(request)
+                               └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/base.py", line 142, in run
+    step_result = await self.step()
+                        │    └ <function ReActAgent.step at 0x7f4e96679260>
+                        └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/react.py", line 39, in step
+    return await self.act()
+                 │    └ <function ToolCallAgent.act at 0x7f4e961dd1c0>
+                 └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 233, in act
+    summary = await self.summarize_tool_results(command.function.name, result)
+                    │    │                      │       │        │     └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                    │    │                      │       │        └ 'browser_use'
+                    │    │                      │       └ Function(arguments='{"action":"web_search","query":"Playing Atari with Deep Reinforcement Learning Mnih et al. 2013 PDF"}', n...
+                    │    │                      └ ChatCompletionMessageToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', function=Function(arguments='{"action":"web_s...
+                    │    └ <function Manus.summarize_tool_results at 0x7f4e920bbce0>
+                    └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/manus.py", line 111, in summarize_tool_results
+    summary = await super().summarize_tool_results(tool_name, result)
+                                                   │          └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                                                   └ 'browser_use'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 172, in summarize_tool_results
+    response = await self.llm.ask(
+                     │    │   └ <function LLM.ask at 0x7f4e96765ee0>
+                     │    └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+                     └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                 │    │    └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                 │    └ <function LLM.ask at 0x7f4e96765c60>
+                 └ <AsyncRetrying object at 0x7f4e881b22a0 (stop=<tenacity.stop.stop_after_attempt object at 0x7f4e9674bec0>, wait=<tenacity.wai...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                   │   └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                   └ <function LLM.ask at 0x7f4e96765c60>
+
+> File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/llm.py", line 496, in ask
+    response = await self.client.chat.completions.create(
+                     │    │      │    │           └ <function AsyncCompletions.create at 0x7f4e97043d80>
+                     │    │      │    └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+                     │    │      └ <openai.resources.chat.chat.AsyncChat object at 0x7f4e8851c560>
+                     │    └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+                     └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2000, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f4e8851f380>>
+                 └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1767, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ False
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', params={}, headers=NOT_GIVEN, max_retries=NOT_GIVEN, timeout=NOT_...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f4e9753a480>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1461, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f4e9753a520>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1562, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f4e9752f600>
+          └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+
+openai.BadRequestError: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:03.428 | ERROR    | open_manus.app.llm:ask:550 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:06.836 | ERROR    | open_manus.app.llm:ask:544 - OpenAI API error
+Traceback (most recent call last):
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f4efe131440>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f4efe131120>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    │        │    └ ()
+    │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    └ <bound method Server.run of <gradio.http_server.Server object at 0x7f4e90170ce0>>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ None
+           │       │   │    └ <function Server.serve at 0x7f4e947c6480>
+           │       │   └ <gradio.http_server.Server object at 0x7f4e90170ce0>
+           │       └ <function run at 0x7f4efd8fba60>
+           └ <module 'asyncio' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/__init__.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7f4e901e7140>
+           │      └ <function Runner.run at 0x7f4efd77cf40>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7f4e90071970>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/queueing.py", line 715, in process_events
+    response = await route_utils.call_process_api(
+                     │           └ <function call_process_api at 0x7f4ea8bdce00>
+                     └ <module 'gradio.route_utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py", line 322, in call_process_api
+    output = await app.get_blocks().process_api(
+                   │   └ <function App.get_blocks at 0x7f4ea8a3a700>
+                   └ <gradio.routes.App object at 0x7f4e904eab10>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 2137, in process_api
+    result = await self.call_function(
+                   │    └ <function Blocks.call_function at 0x7f4ea89640e0>
+                   └ Gradio Blocks instance: 9 backend functions
+                     -------------------------------------------
+                     fn_index=0
+                      inputs:
+                      |-<gradio.compon...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 1675, in call_function
+    prediction = await utils.async_iteration(iterator)
+                       │     │               └ <async_generator object respond at 0x7f4e900d5cf0>
+                       │     └ <function async_iteration at 0x7f4ea8bc04a0>
+                       └ <module 'gradio.utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 735, in async_iteration
+    return await anext(iterator)
+                       └ <async_generator object respond at 0x7f4e900d5cf0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 840, in asyncgen_wrapper
+    response = await iterator.__anext__()
+                     │        └ <slot wrapper '__anext__' of 'async_generator' objects>
+                     └ <async_generator object respond at 0x7f4e91cbaa40>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 950, in respond
+    async for updated_conv, _debug, is_generating in chat_with_cfo(conversation, user_message):
+              │             │       │                │             │             └ 'can you help me find a pdf and download it? it is a paper about AI, and its name is  like this kind of: Use Reinforcement to...
+              │             │       │                │             └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+              │             │       │                └ <function chat_with_cfo at 0x7f4e90da23e0>
+              │             │       └ True
+              │             └ ''
+              └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 633, in chat_with_cfo
+    tools_result = await ToolsProcessor.process_tools_request_async_with_progress(
+                         │              └ <staticmethod(<function ToolsProcessor.process_tools_request_async_with_progress at 0x7f4e90da2700>)>
+                         └ <class '__main__.ToolsProcessor'>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 335, in process_tools_request_async_with_progress
+    result = await agent.run(content)
+                   │     │   └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+                   │     └ <function ToolCallAgent.run at 0x7f4e961dd620>
+                   └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 380, in run
+    result = await super().run(request)
+                               └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/base.py", line 142, in run
+    step_result = await self.step()
+                        │    └ <function ReActAgent.step at 0x7f4e96679260>
+                        └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/react.py", line 39, in step
+    return await self.act()
+                 │    └ <function ToolCallAgent.act at 0x7f4e961dd1c0>
+                 └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 233, in act
+    summary = await self.summarize_tool_results(command.function.name, result)
+                    │    │                      │       │        │     └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                    │    │                      │       │        └ 'browser_use'
+                    │    │                      │       └ Function(arguments='{"action":"web_search","query":"Playing Atari with Deep Reinforcement Learning Mnih et al. 2013 PDF"}', n...
+                    │    │                      └ ChatCompletionMessageToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', function=Function(arguments='{"action":"web_s...
+                    │    └ <function Manus.summarize_tool_results at 0x7f4e920bbce0>
+                    └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/manus.py", line 111, in summarize_tool_results
+    summary = await super().summarize_tool_results(tool_name, result)
+                                                   │          └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                                                   └ 'browser_use'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 172, in summarize_tool_results
+    response = await self.llm.ask(
+                     │    │   └ <function LLM.ask at 0x7f4e96765ee0>
+                     │    └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+                     └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                 │    │    └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                 │    └ <function LLM.ask at 0x7f4e96765c60>
+                 └ <AsyncRetrying object at 0x7f4e881b22a0 (stop=<tenacity.stop.stop_after_attempt object at 0x7f4e9674bec0>, wait=<tenacity.wai...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                   │   └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                   └ <function LLM.ask at 0x7f4e96765c60>
+
+> File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/llm.py", line 496, in ask
+    response = await self.client.chat.completions.create(
+                     │    │      │    │           └ <function AsyncCompletions.create at 0x7f4e97043d80>
+                     │    │      │    └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+                     │    │      └ <openai.resources.chat.chat.AsyncChat object at 0x7f4e8851c560>
+                     │    └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+                     └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2000, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f4e8851f380>>
+                 └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1767, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ False
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', params={}, headers=NOT_GIVEN, max_retries=NOT_GIVEN, timeout=NOT_...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f4e9753a480>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1461, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f4e9753a520>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1562, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f4e9752f600>
+          └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+
+openai.BadRequestError: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:06.845 | ERROR    | open_manus.app.llm:ask:550 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:15.153 | ERROR    | open_manus.app.llm:ask:544 - OpenAI API error
+Traceback (most recent call last):
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f4efe131440>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f4efe131120>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    │        │    └ ()
+    │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    └ <bound method Server.run of <gradio.http_server.Server object at 0x7f4e90170ce0>>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ None
+           │       │   │    └ <function Server.serve at 0x7f4e947c6480>
+           │       │   └ <gradio.http_server.Server object at 0x7f4e90170ce0>
+           │       └ <function run at 0x7f4efd8fba60>
+           └ <module 'asyncio' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/__init__.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7f4e901e7140>
+           │      └ <function Runner.run at 0x7f4efd77cf40>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7f4e90071970>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/queueing.py", line 715, in process_events
+    response = await route_utils.call_process_api(
+                     │           └ <function call_process_api at 0x7f4ea8bdce00>
+                     └ <module 'gradio.route_utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py", line 322, in call_process_api
+    output = await app.get_blocks().process_api(
+                   │   └ <function App.get_blocks at 0x7f4ea8a3a700>
+                   └ <gradio.routes.App object at 0x7f4e904eab10>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 2137, in process_api
+    result = await self.call_function(
+                   │    └ <function Blocks.call_function at 0x7f4ea89640e0>
+                   └ Gradio Blocks instance: 9 backend functions
+                     -------------------------------------------
+                     fn_index=0
+                      inputs:
+                      |-<gradio.compon...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 1675, in call_function
+    prediction = await utils.async_iteration(iterator)
+                       │     │               └ <async_generator object respond at 0x7f4e900d5cf0>
+                       │     └ <function async_iteration at 0x7f4ea8bc04a0>
+                       └ <module 'gradio.utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 735, in async_iteration
+    return await anext(iterator)
+                       └ <async_generator object respond at 0x7f4e900d5cf0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 840, in asyncgen_wrapper
+    response = await iterator.__anext__()
+                     │        └ <slot wrapper '__anext__' of 'async_generator' objects>
+                     └ <async_generator object respond at 0x7f4e91cbaa40>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 950, in respond
+    async for updated_conv, _debug, is_generating in chat_with_cfo(conversation, user_message):
+              │             │       │                │             │             └ 'can you help me find a pdf and download it? it is a paper about AI, and its name is  like this kind of: Use Reinforcement to...
+              │             │       │                │             └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+              │             │       │                └ <function chat_with_cfo at 0x7f4e90da23e0>
+              │             │       └ True
+              │             └ ''
+              └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 633, in chat_with_cfo
+    tools_result = await ToolsProcessor.process_tools_request_async_with_progress(
+                         │              └ <staticmethod(<function ToolsProcessor.process_tools_request_async_with_progress at 0x7f4e90da2700>)>
+                         └ <class '__main__.ToolsProcessor'>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 335, in process_tools_request_async_with_progress
+    result = await agent.run(content)
+                   │     │   └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+                   │     └ <function ToolCallAgent.run at 0x7f4e961dd620>
+                   └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 380, in run
+    result = await super().run(request)
+                               └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/base.py", line 142, in run
+    step_result = await self.step()
+                        │    └ <function ReActAgent.step at 0x7f4e96679260>
+                        └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/react.py", line 39, in step
+    return await self.act()
+                 │    └ <function ToolCallAgent.act at 0x7f4e961dd1c0>
+                 └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 233, in act
+    summary = await self.summarize_tool_results(command.function.name, result)
+                    │    │                      │       │        │     └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                    │    │                      │       │        └ 'browser_use'
+                    │    │                      │       └ Function(arguments='{"action":"web_search","query":"Playing Atari with Deep Reinforcement Learning Mnih et al. 2013 PDF"}', n...
+                    │    │                      └ ChatCompletionMessageToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', function=Function(arguments='{"action":"web_s...
+                    │    └ <function Manus.summarize_tool_results at 0x7f4e920bbce0>
+                    └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/manus.py", line 111, in summarize_tool_results
+    summary = await super().summarize_tool_results(tool_name, result)
+                                                   │          └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                                                   └ 'browser_use'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 172, in summarize_tool_results
+    response = await self.llm.ask(
+                     │    │   └ <function LLM.ask at 0x7f4e96765ee0>
+                     │    └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+                     └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                 │    │    └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                 │    └ <function LLM.ask at 0x7f4e96765c60>
+                 └ <AsyncRetrying object at 0x7f4e881b22a0 (stop=<tenacity.stop.stop_after_attempt object at 0x7f4e9674bec0>, wait=<tenacity.wai...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                   │   └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                   └ <function LLM.ask at 0x7f4e96765c60>
+
+> File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/llm.py", line 496, in ask
+    response = await self.client.chat.completions.create(
+                     │    │      │    │           └ <function AsyncCompletions.create at 0x7f4e97043d80>
+                     │    │      │    └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+                     │    │      └ <openai.resources.chat.chat.AsyncChat object at 0x7f4e8851c560>
+                     │    └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+                     └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2000, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f4e8851f380>>
+                 └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1767, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ False
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', params={}, headers=NOT_GIVEN, max_retries=NOT_GIVEN, timeout=NOT_...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f4e9753a480>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1461, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f4e9753a520>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1562, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f4e9752f600>
+          └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+
+openai.BadRequestError: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:15.163 | ERROR    | open_manus.app.llm:ask:550 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:20.263 | ERROR    | open_manus.app.llm:ask:544 - OpenAI API error
+Traceback (most recent call last):
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1032, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x7f4efe131440>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x7f4efe131120>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    │        │    └ ()
+    │    │        └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+    │    └ <bound method Server.run of <gradio.http_server.Server object at 0x7f4e90170ce0>>
+    └ <Thread(Thread-5 (run), started daemon 139975332984384)>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ None
+           │       │   │    └ <function Server.serve at 0x7f4e947c6480>
+           │       │   └ <gradio.http_server.Server object at 0x7f4e90170ce0>
+           │       └ <function run at 0x7f4efd8fba60>
+           └ <module 'asyncio' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/__init__.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7f4e901e7140>
+           │      └ <function Runner.run at 0x7f4efd77cf40>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7f4e90071970>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7f4e920cbb90>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/queueing.py", line 715, in process_events
+    response = await route_utils.call_process_api(
+                     │           └ <function call_process_api at 0x7f4ea8bdce00>
+                     └ <module 'gradio.route_utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/route_utils.py", line 322, in call_process_api
+    output = await app.get_blocks().process_api(
+                   │   └ <function App.get_blocks at 0x7f4ea8a3a700>
+                   └ <gradio.routes.App object at 0x7f4e904eab10>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 2137, in process_api
+    result = await self.call_function(
+                   │    └ <function Blocks.call_function at 0x7f4ea89640e0>
+                   └ Gradio Blocks instance: 9 backend functions
+                     -------------------------------------------
+                     fn_index=0
+                      inputs:
+                      |-<gradio.compon...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 1675, in call_function
+    prediction = await utils.async_iteration(iterator)
+                       │     │               └ <async_generator object respond at 0x7f4e900d5cf0>
+                       │     └ <function async_iteration at 0x7f4ea8bc04a0>
+                       └ <module 'gradio.utils' from '/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py'>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 735, in async_iteration
+    return await anext(iterator)
+                       └ <async_generator object respond at 0x7f4e900d5cf0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/utils.py", line 840, in asyncgen_wrapper
+    response = await iterator.__anext__()
+                     │        └ <slot wrapper '__anext__' of 'async_generator' objects>
+                     └ <async_generator object respond at 0x7f4e91cbaa40>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 950, in respond
+    async for updated_conv, _debug, is_generating in chat_with_cfo(conversation, user_message):
+              │             │       │                │             │             └ 'can you help me find a pdf and download it? it is a paper about AI, and its name is  like this kind of: Use Reinforcement to...
+              │             │       │                │             └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+              │             │       │                └ <function chat_with_cfo at 0x7f4e90da23e0>
+              │             │       └ True
+              │             └ ''
+              └ [{'role': 'user', 'content': 'hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today? [[TOOLS:FALSE][none]...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 633, in chat_with_cfo
+    tools_result = await ToolsProcessor.process_tools_request_async_with_progress(
+                         │              └ <staticmethod(<function ToolsProcessor.process_tools_request_async_with_progress at 0x7f4e90da2700>)>
+                         └ <class '__main__.ToolsProcessor'>
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/app/__main__.py", line 335, in process_tools_request_async_with_progress
+    result = await agent.run(content)
+                   │     │   └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+                   │     └ <function ToolCallAgent.run at 0x7f4e961dd620>
+                   └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 380, in run
+    result = await super().run(request)
+                               └ 'Search for the paper "Playing Atari with Deep Reinforcement Learning" by Mnih et al. (2013) and attempt to download the PDF.'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/base.py", line 142, in run
+    step_result = await self.step()
+                        │    └ <function ReActAgent.step at 0x7f4e96679260>
+                        └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/react.py", line 39, in step
+    return await self.act()
+                 │    └ <function ToolCallAgent.act at 0x7f4e961dd1c0>
+                 └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 233, in act
+    summary = await self.summarize_tool_results(command.function.name, result)
+                    │    │                      │       │        │     └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                    │    │                      │       │        └ 'browser_use'
+                    │    │                      │       └ Function(arguments='{"action":"web_search","query":"Playing Atari with Deep Reinforcement Learning Mnih et al. 2013 PDF"}', n...
+                    │    │                      └ ChatCompletionMessageToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', function=Function(arguments='{"action":"web_s...
+                    │    └ <function Manus.summarize_tool_results at 0x7f4e920bbce0>
+                    └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/manus.py", line 111, in summarize_tool_results
+    summary = await super().summarize_tool_results(tool_name, result)
+                                                   │          └ "Observed output of cmd `browser_use` executed:\nSearch results for 'Playing Atari with Deep Reinforcement Learning Mnih et a...
+                                                   └ 'browser_use'
+
+  File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/agent/toolcall.py", line 172, in summarize_tool_results
+    response = await self.llm.ask(
+                     │    │   └ <function LLM.ask at 0x7f4e96765ee0>
+                     │    └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+                     └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools', system_prompt="You are...
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+                 │    │    │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                 │    │    └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                 │    └ <function LLM.ask at 0x7f4e96765c60>
+                 └ <AsyncRetrying object at 0x7f4e881b22a0 (stop=<tenacity.stop.stop_after_attempt object at 0x7f4e9674bec0>, wait=<tenacity.wai...
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+                   │   │       └ {'messages': [Message(role='assistant', content='', tool_calls=[ToolCall(id='call_0_32236b65-e93b-4f2f-91cc-722b12721e83', ty...
+                   │   └ (<open_manus.app.llm.LLM object at 0x7f4e8851dee0>,)
+                   └ <function LLM.ask at 0x7f4e96765c60>
+
+> File "/home/jeffliu/projects_ubuntu/AgentKit/open_manus/app/llm.py", line 496, in ask
+    response = await self.client.chat.completions.create(
+                     │    │      │    │           └ <function AsyncCompletions.create at 0x7f4e97043d80>
+                     │    │      │    └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+                     │    │      └ <openai.resources.chat.chat.AsyncChat object at 0x7f4e8851c560>
+                     │    └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+                     └ <open_manus.app.llm.LLM object at 0x7f4e8851dee0>
+
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2000, in create
+    return await self._post(
+                 │    └ <bound method AsyncAPIClient.post of <openai.AsyncOpenAI object at 0x7f4e8851f380>>
+                 └ <openai.resources.chat.completions.completions.AsyncCompletions object at 0x7f4e90109ca0>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1767, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+                 │    │       │        │            │                  └ openai.AsyncStream[openai.types.chat.chat_completion_chunk.ChatCompletionChunk]
+                 │    │       │        │            └ False
+                 │    │       │        └ FinalRequestOptions(method='post', url='/chat/completions', params={}, headers=NOT_GIVEN, max_retries=NOT_GIVEN, timeout=NOT_...
+                 │    │       └ <class 'openai.types.chat.chat_completion.ChatCompletion'>
+                 │    └ <function AsyncAPIClient.request at 0x7f4e9753a480>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1461, in request
+    return await self._request(
+                 │    └ <function AsyncAPIClient._request at 0x7f4e9753a520>
+                 └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/openai/_base_client.py", line 1562, in _request
+    raise self._make_status_error_from_response(err.response) from None
+          │    └ <function BaseClient._make_status_error_from_response at 0x7f4e9752f600>
+          └ <openai.AsyncOpenAI object at 0x7f4e8851f380>
+
+openai.BadRequestError: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:20.273 | ERROR    | open_manus.app.llm:ask:550 - API error: Error code: 400 - {'error': {'message': "An assistant message with 'tool_calls' must be followed by tool messages responding to each 'tool_call_id'. (insufficient tool messages following tool_calls message)", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:31:20.274 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:31:20.274 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Starting resource cleanup
+2025-04-17 22:31:20.490 | INFO     | open_manus.app.agent.toolcall:cleanup:362 - 🧹 Cleaning up resources for agent 'Manus'...
+2025-04-17 22:31:20.491 | DEBUG    | open_manus.app.agent.toolcall:cleanup:368 - 🧼 Cleaning up tool: browser_use
+2025-04-17 22:31:20.491 | INFO     | open_manus.app.agent.toolcall:cleanup:374 - ✨ Cleanup complete for agent 'Manus'.
+2025-04-17 22:31:20.491 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Resource cleanup complete
+2025-04-17 22:31:20.491 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Resource cleanup complete
+2025-04-17 22:31:20.491 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:31:20.491 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Starting resource cleanup
+2025-04-17 22:31:20.491 | INFO     | open_manus.app.agent.toolcall:cleanup:362 - 🧹 Cleaning up resources for agent 'Manus'...
+2025-04-17 22:31:20.491 | DEBUG    | open_manus.app.agent.toolcall:cleanup:368 - 🧼 Cleaning up tool: browser_use
+2025-04-17 22:31:20.492 | INFO     | open_manus.app.agent.toolcall:cleanup:374 - ✨ Cleanup complete for agent 'Manus'.
+2025-04-17 22:31:20.492 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Resource cleanup complete
+2025-04-17 22:31:20.492 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Resource cleanup complete

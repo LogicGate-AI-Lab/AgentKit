@@ -1,4 +1,4 @@
-# 标准库导入
+# Standard library imports
 import asyncio
 import logging
 import os
@@ -7,36 +7,36 @@ import re
 import sys
 from pathlib import Path
 
-# 第三方库导入
+# Third-party library imports
 import gradio as gr
 from openai import OpenAI
 
-# 添加项目根目录到Python路径，确保可以导入open_manus模块
-project_root = Path(__file__).parent.parent  # 假设当前文件是在app目录下
+# Add project root directory to Python path to ensure open_manus module can be imported
+project_root = Path(__file__).parent.parent  # Assuming current file is in app directory
 if str(project_root) not in sys.path:
     sys.path.append(str(project_root))
 
-# 本地应用导入
+# Local application imports
 try:
     from open_manus.app.agent.manus import Manus
     from open_manus.app.logger import logger as manus_logger
 except ImportError as e:
-    print(f"警告: 无法导入open_manus模块: {e}")
-    # 创建一个模拟的Manus类以避免运行时错误
+    print(f"Warning: Unable to import open_manus module: {e}")
+    # Create a mock Manus class to avoid runtime errors
     class Manus:
         async def run(self, prompt):
-            print(f"模拟运行Manus: {prompt}")
-            return f"模拟Manus结果: {prompt}"
+            print(f"Simulating Manus execution: {prompt}")
+            return f"Simulated Manus result: {prompt}"
         
         async def cleanup(self):
-            print("模拟清理Manus资源")
+            print("Simulating cleanup of Manus resources")
 
 
 # =====================================================================
-# API客户端初始化部分
+# API Client Initialization
 # =====================================================================
-# 初始化OpenAI客户端，配置为使用DeepSeek的API服务
-# 注意：这里的API密钥是硬编码的，在实际应用中应使用环境变量或配置文件
+# Initialize OpenAI client, configured to use DeepSeek's API service
+# Note: API key is hardcoded; in production, use environment variables or config files
 # IMPORT APP MAIN KEY
 try:
     from key.key import MAIN_APP_KEY, MAIN_APP_URL
@@ -50,66 +50,66 @@ client = OpenAI(
 )
 
 # =====================================================================
-# 配置部分
+# Configuration Section
 # =====================================================================
-# 用于控制是否隐藏TOOLS指令内容的开关
+# Switch to control whether to hide TOOLS instruction content
 HIDE_TOOLS_CONTENT = False
 
 
 # =====================================================================
-# 日志配置部分
+# Logging Configuration Section
 # =====================================================================
-# 使用更详细的日志配置，方便排查问题
+# More detailed logging configuration for troubleshooting
 from logging.handlers import RotatingFileHandler
 
-# 创建日志目录
+# Create log directory
 log_dir = os.path.join(os.path.dirname(__file__), "log")
 os.makedirs(log_dir, exist_ok=True)
 
-# 生成日志文件名，格式为: YYYY-MM-DD_HH-MM-SS.log
+# Generate log filename in format: YYYY-MM-DD_HH-MM-SS.log
 log_filename = time.strftime("%Y-%m-%d_%H-%M-%S") + ".log"
 log_filepath = os.path.join(log_dir, log_filename)
 
-# 创建专门的open_manus日志文件处理器
+# Create specific open_manus log file handler
 manus_log_filepath = os.path.join(log_dir, f"manus_{log_filename}")
 
-# 配置根日志记录器 - 先配置根记录器，确保全局设置生效
+# Configure root logger - configure root logger first to ensure global settings take effect
 root_logger = logging.getLogger()
 root_logger.setLevel(logging.INFO)
 
-# 清除任何现有的处理器
+# Clear any existing handlers
 for handler in root_logger.handlers[:]:
     root_logger.removeHandler(handler)
 
-# 创建和配置控制台处理器
+# Create and configure console handler
 console_handler = logging.StreamHandler(sys.stdout)
 console_handler.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 console_handler.setFormatter(formatter)
 root_logger.addHandler(console_handler)
 
-# 创建和配置文件处理器
+# Create and configure file handler
 file_handler = RotatingFileHandler(
     log_filepath,
     maxBytes=10 * 1024 * 1024,  # 10 MB
-    backupCount=5,  # 保留5个备份文件
+    backupCount=5,  # Keep 5 backup files
     encoding='utf-8'
 )
 file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)  # 使用相同的格式器
+file_handler.setFormatter(formatter)  # Use the same formatter
 root_logger.addHandler(file_handler)
 
-# 捕获警告信息到日志
+# Capture warnings to log
 logging.captureWarnings(True)
 
-# 确保第三方库的日志也能被捕获
+# Ensure third-party library logs are captured
 for logger_name in ['urllib3', 'browser_use', 'openai', 'asyncio']:
     third_party_logger = logging.getLogger(logger_name)
     third_party_logger.setLevel(logging.INFO)
-    # 确保传播到根记录器
+    # Ensure propagation to root logger
     third_party_logger.propagate = True
 
-# 配置open_manus的日志输出
+# Configure open_manus log output
 manus_file_handler = RotatingFileHandler(
     manus_log_filepath,
     maxBytes=10 * 1024 * 1024,  # 10 MB
@@ -119,7 +119,7 @@ manus_file_handler = RotatingFileHandler(
 manus_file_handler.setLevel(logging.INFO)
 manus_file_handler.setFormatter(formatter)
 
-# 配置open_manus相关的日志记录器
+# Configure open_manus related loggers
 for logger_name in [
     'open_manus', 
     'open_manus.app.agent.base', 
@@ -132,71 +132,72 @@ for logger_name in [
         manus_logger = logging.getLogger(logger_name)
         manus_logger.setLevel(logging.INFO)
         manus_logger.addHandler(manus_file_handler)
-        manus_logger.addHandler(console_handler)  # 同时输出到控制台
-        # 设置为不传播到根记录器，避免重复记录
+        manus_logger.addHandler(console_handler)  # Also output to console
+        # Set to not propagate to root logger to avoid duplicate logging
         manus_logger.propagate = False
     except Exception as e:
-        print(f"无法配置{logger_name}日志记录器: {e}")
+        print(f"Unable to configure {logger_name} logger: {e}")
 
-# 配置模块级别的日志记录器
+# Configure module-level logger
 logger = logging.getLogger(__name__)
 
-# 记录应用启动日志
-logger.info(f"应用启动，日志保存至: {log_filepath}")
-logger.info(f"Open Manus日志保存至: {manus_log_filepath}")
+# Record application startup log
+logger.info(f"Application started, logs saved to: {log_filepath}")
+logger.info(f"Open Manus logs saved to: {manus_log_filepath}")
 
 
 # =====================================================================
-# 工具处理模块
+# Tools Processing Module
 # =====================================================================
 class ToolsProcessor:
     """
-    处理LLM回复中工具相关内容的类
+    Class for handling tool-related content in LLM responses
     
-    这个类负责提取并处理LLM回复中的TOOLS指令，并根据指令状态决定后续操作
+    This class is responsible for extracting and processing TOOLS instructions
+    from LLM responses and determining subsequent actions based on instruction status
     """
     
     @staticmethod
     def extract_tools_content(message):
-        """从消息中提取TOOLS指令内容"""
-        # 使用正则表达式匹配TOOLS指令格式
+        """Extract TOOLS instruction content from a message"""
+        # Use regex to match TOOLS instruction format
         import re
         pattern = r'\[\[TOOLS:(TRUE|FALSE)\]\[(.*?)\]\]'
         match = re.search(pattern, message, re.DOTALL)
         
         if match:
-            tools_status = match.group(1) == "TRUE"  # 提取TOOLS状态
-            tools_content = match.group(2)  # 提取TOOLS内容
+            tools_status = match.group(1) == "TRUE"  # Extract TOOLS status
+            tools_content = match.group(2)  # Extract TOOLS content
             
-            # 调试输出以验证内容提取
-            logger.info(f"提取的工具状态: {tools_status}")
-            logger.info(f"提取的工具内容: {tools_content}")
+            # Debug output to verify content extraction
+            logger.info(f"Extracted tool status: {tools_status}")
+            logger.info(f"Extracted tool content: {tools_content}")
             
-            # 根据HIDE_TOOLS_CONTENT决定是否从消息中移除TOOLS指令
+            # Based on HIDE_TOOLS_CONTENT, decide whether to remove TOOLS instruction from message
             if HIDE_TOOLS_CONTENT:
-                # 移除匹配到的TOOLS指令部分
+                # Remove the matched TOOLS instruction part
                 cleaned_message = re.sub(pattern, '', message, flags=re.DOTALL).strip()
             else:
-                # 保留原始消息
+                # Keep original message
                 cleaned_message = message
                 
             return cleaned_message, tools_status, tools_content
         
-        # 如果没有匹配到TOOLS指令，返回原始消息和默认值
-        logger.warning("未检测到TOOLS指令内容")
+        # If no TOOLS instruction matched, return original message and default values
+        logger.warning("No TOOLS instruction content detected")
         return message, False, ""
     
     @staticmethod
     def configure_manus_logging():
-        """配置open_manus的日志系统，将其输出转发到主程序"""
+        """Configure open_manus logging system, forwarding its output to the main program"""
         try:
-            # 获取主程序的根日志记录器
+            # Get the main program's root logger
             root_logger = logging.getLogger()
             
-            # 尝试导入open_manus日志模块
+            # Try to import open_manus logging module
             import importlib
             
-            # 获取各个需要处理的open_manus模块的日志记录器
+            # Get loggers for each open_manus module that needs handling
             loggers_to_configure = [
                 'open_manus',
                 'open_manus.app.agent.base',
@@ -208,31 +209,31 @@ class ToolsProcessor:
                 'root'
             ]
             
-            # 保存原始配置以便稍后还原
+            # Save original configurations for later restoration
             original_configs = {}
             
             for logger_name in loggers_to_configure:
                 try:
                     manus_logger = logging.getLogger(logger_name)
                     
-                    # 保存原始配置
+                    # Save original configuration
                     original_configs[logger_name] = {
                         'level': manus_logger.level,
                         'handlers': list(manus_logger.handlers),
                         'propagate': manus_logger.propagate
                     }
                     
-                    # 设置日志级别为INFO或更高
+                    # Set log level to INFO or higher
                     manus_logger.setLevel(logging.INFO)
                     
-                    # 确保日志能传播到根记录器
+                    # Ensure logs propagate to root logger
                     manus_logger.propagate = True
                     
-                    # 添加主程序的处理器
+                    # Add main program's handlers
                     for handler in root_logger.handlers:
                         if handler not in manus_logger.handlers:
-                            # 如果是文件处理器，创建一个新的处理器指向同一个文件
-                            # 这样可以避免潜在的文件锁定问题
+                            # If it's a file handler, create a new handler pointing to the same file
+                            # This avoids potential file locking issues
                             if isinstance(handler, logging.FileHandler):
                                 try:
                                     file_path = handler.baseFilename
@@ -241,29 +242,27 @@ class ToolsProcessor:
                                     new_handler.setLevel(handler.level)
                                     manus_logger.addHandler(new_handler)
                                 except (AttributeError, IOError) as e:
-                                    logger.warning(f"为{logger_name}创建文件处理器时出错: {e}")
+                                    logger.warning(f"Error creating file handler for {logger_name}: {e}")
                             else:
-                                # 对于非文件处理器(如控制台处理器)，直接添加引用
+                                # For non-file handlers (e.g., console handlers), just add reference
                                 manus_logger.addHandler(handler)
                     
                 except Exception as e:
-                    logger.warning(f"配置{logger_name}日志时出错: {e}")
+                    logger.warning(f"Error configuring {logger_name} logger: {e}")
             
-            logger.info("已配置Open Manus日志转发到主程序")
+            logger.info("Configured Open Manus logging to forward to main program")
             return original_configs
             
         except ImportError as e:
-            logger.warning(f"无法导入Open Manus日志模块: {e}")
+            logger.warning(f"Unable to import Open Manus logging module: {e}")
             return {}
         except Exception as e:
-            logger.warning(f"配置Open Manus日志时出错: {e}")
+            logger.warning(f"Error configuring Open Manus logging: {e}")
             return {}
         
-
-
     @staticmethod
     def restore_manus_logging(original_configs):
-        """恢复open_manus的原始日志配置"""
+        """Restore original open_manus logging configuration"""
         if not original_configs:
             return
             
@@ -271,261 +270,288 @@ class ToolsProcessor:
             try:
                 manus_logger = logging.getLogger(logger_name)
                 
-                # 恢复原始级别
+                # Restore original level
                 manus_logger.setLevel(config['level'])
                 
-                # 恢复原始处理器
+                # Restore original handlers
                 for handler in list(manus_logger.handlers):
                     if handler not in config['handlers']:
                         manus_logger.removeHandler(handler)
                 
-                # 恢复传播设置
+                # Restore propagation setting
                 manus_logger.propagate = config['propagate']
                 
             except Exception as e:
-                logger.warning(f"恢复{logger_name}日志配置时出错: {e}")
+                logger.warning(f"Error restoring {logger_name} logger configuration: {e}")
     
     @staticmethod
-    async def process_tools_request_async(content):
+    async def process_tools_request_async_with_progress(content, progress_callback=None):
         """
-        异步处理工具请求，调用Open Manus工具链
+        Asynchronously process tool requests with progress reporting
         
-        参数:
-            content (str): 工具请求内容，将作为prompt传递给Manus
+        Parameters:
+            content (str): Tool request content to pass to Manus
+            progress_callback (callable): Function to call with progress updates
             
-        返回值:
-            str: 工具执行结果
+        Returns:
+            str: Tool execution result
         """
-        logger.info(f"开始处理工具请求: {content}")
+        logger.info(f"Starting tool request processing: {content}")
         
-        # 配置open_manus的日志系统
+        # Configure open_manus logging system
         original_configs = ToolsProcessor.configure_manus_logging()
         
         try:
-            # 动态导入Manus以避免模块级别的导入问题
+            # Dynamically import Manus
             try:
                 from open_manus.app.agent.manus import Manus
             except ImportError as e:
-                logger.error(f"无法导入Manus: {e}")
-                return f"工具初始化失败: 无法导入Manus模块 ({e})"
+                logger.error(f"Unable to import Manus: {e}")
+                if progress_callback:
+                    progress_callback(f"Failed to import Manus module: {e}")
+                return f"Tool initialization failed: Cannot import Manus module ({e})"
             
-            # 创建Manus代理实例
+            # Create Manus agent instance
             agent = Manus()
             
-
-
-            #########################################
-            ########### TOOLS CHAIN - MANUS #########
-            #########################################
+            # Set progress callback if provided
+            if progress_callback:
+                agent.set_progress_callback(progress_callback)
+                progress_callback("Manus agent initialized")
+            
             try:
-                # 确保prompt非空
+                # Ensure prompt is not empty
                 if not content.strip():
-                    logger.warning("收到空的工具请求")
-                    return "工具请求内容为空，无法处理"
+                    logger.warning("Received empty tool request")
+                    if progress_callback:
+                        progress_callback("Tool request content is empty")
+                    return "Tool request content is empty, cannot process"
                 
-                logger.info(f"向Open Manus提交请求: {content}")
+                logger.info(f"Submitting request to Open Manus: {content}")
+                if progress_callback:
+                    progress_callback(f"Starting execution with prompt: {content[:100]}...")
                 
-                """
-                这里是把整理好的工具PROMPT内容发送给Manus
-                """
-
-                # 调用Manus代理的run方法执行工具链
-                await agent.run(content)
+                # Run the agent with the provided content
+                result = await agent.run(content)
                 
-                # 这里返回固定的成功消息
-                logger.info("Open Manus工具链执行完成")
-
-                print("FLAG-2")
-                print("FLAG-2")
-                print("FLAG-2")
-                print("FLAG-2")
-                print("FLAG-2")
-
-                return "工具使用已经完毕，请参考控制台获悉具体操作内容和结果。"
-                # return "{工具已经调用！}"
+                logger.info("Open Manus toolchain execution completed")
+                if progress_callback:
+                    progress_callback("Tool execution completed successfully")
+                
+                return result
                 
             except Exception as e:
-                logger.error(f"执行Open Manus工具链时出错: {e}")
-                return f"工具执行失败: {str(e)}"
+                logger.error(f"Error executing Open Manus toolchain: {e}")
+                if progress_callback:
+                    progress_callback(f"Error during execution: {str(e)}")
+                return f"Tool execution failed: {str(e)}"
             finally:
-                # 确保资源被清理
-                logger.info("清理Open Manus资源")
+                # Ensure resources are cleaned up
+                logger.info("Cleaning up Open Manus resources")
+                if progress_callback:
+                    progress_callback("Cleaning up resources")
                 await agent.cleanup()
                 
         except Exception as e:
-            logger.error(f"初始化Open Manus代理时出错: {e}")
-            return f"工具初始化失败: {str(e)}"
+            logger.error(f"Error initializing Open Manus agent: {e}")
+            if progress_callback:
+                progress_callback(f"Tool initialization error: {str(e)}")
+            return f"Tool initialization failed: {str(e)}"
         finally:
-            # 恢复原始日志配置
+            # Restore original logging configuration
             ToolsProcessor.restore_manus_logging(original_configs)
+            if progress_callback:
+                progress_callback("Resource cleanup and logging restoration complete")
     
     @staticmethod
     def process_tools_request(content):
-        """处理工具请求的同步包装函数"""
-        # 记录接收到的工具请求内容
-        logger.info(f"接收到工具请求: {content}")
+        """Synchronous wrapper function for processing tool requests with progress"""
+        # Record received tool request content
+        logger.info(f"Received tool request: {content}")
         
-        # 使用线程池执行器来运行异步函数
+        # Use thread pool executor to run asynchronous function
         import concurrent.futures
         import threading
         
-        logger.info("创建线程池执行器")
+        logger.info("Creating thread pool executor")
         with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-            # 创建一个可以共享的结果变量
+            # Create a shared result container
             result_container = []
+            progress_updates = []
             
-            # 定义线程函数
+            # Progress callback function
+            def progress_handler(message):
+                progress_updates.append(message)
+                logger.info(f"Progress update: {message}")
+            
+            # Define thread function
             def run_async_in_thread():
                 try:
-                    logger.info("线程开始执行")
-                    # 创建新的事件循环
+                    logger.info("Thread execution started")
+                    # Create new event loop
                     new_loop = asyncio.new_event_loop()
                     asyncio.set_event_loop(new_loop)
                     
-                    # 执行异步函数
+                    # Execute asynchronous function with progress
                     result = new_loop.run_until_complete(
-                        ToolsProcessor.process_tools_request_async(content)
+                        ToolsProcessor.process_tools_request_async_with_progress(
+                            content, progress_callback=progress_handler
+                        )
                     )
                     result_container.append(result)
-                    logger.info("异步任务执行完成")
-
-                    # 工具执行完毕，回到这里
-
+                    logger.info("Asynchronous task completed")
 
                 except Exception as e:
-                    logger.error(f"线程执行出错: {e}")
-                    result_container.append(f"工具处理出错: {str(e)}")
+                    logger.error(f"Thread execution error: {e}")
+                    result_container.append(f"Tool processing error: {str(e)}")
                 finally:
-                    logger.info("线程结束")
+                    logger.info("Thread ended")
             
-            # 提交线程任务
+            # Submit thread task
             future = executor.submit(run_async_in_thread)
             
             try:
-                # 等待任务完成，设置超时
-                logger.info("等待工具执行完成，超时时间300秒")
+                # Wait for task completion, set timeout
+                logger.info("Waiting for tool execution to complete, timeout 300 seconds")
                 future.result(timeout=300)
                 
-                # 如果有结果，返回结果；否则返回默认消息
+                # If there's a result, return it with progress info; otherwise return default message
                 if result_container:
-                    return result_container[0]
+                    progress_summary = "\n".join(progress_updates) if progress_updates else "No detailed progress available"
+                    return f"""
+Tool execution completed.
+
+Progress Log:
+{progress_summary}
+
+Result:
+{result_container[0]}
+"""
                 else:
-                    return "工具执行完成，但没有返回结果"
+                    return "Tool execution completed, but no result returned"
             except concurrent.futures.TimeoutError:
-                logger.error("工具执行超时")
-                return "工具执行超时，已强制终止"
+                logger.error("Tool execution timeout")
+                progress_summary = "\n".join(progress_updates) if progress_updates else "No progress information available"
+                return f"""
+Tool execution timeout, forcibly terminated after 300 seconds.
+
+Last recorded progress:
+{progress_summary}
+"""
             except Exception as e:
-                logger.error(f"等待工具执行结果时出错: {e}")
-                return f"工具处理过程出错: {str(e)}"
-            
+                logger.error(f"Error waiting for tool execution result: {e}")
+                progress_summary = "\n".join(progress_updates) if progress_updates else "No progress information available"
+                return f"""
+Error during tool processing: {str(e)}
+
+Progress before error:
+{progress_summary}
+"""
+    
     @staticmethod
     def process_message(message):
         """
-        处理完整的LLM回复消息
+        Process complete LLM response message
         
-        参数:
-            message (str): 原始LLM回复消息
+        Parameters:
+            message (str): Original LLM response message
             
-        返回值:
-            str: 处理后的消息
+        Returns:
+            str: Processed message
         """
-        # 记录原始消息以进行调试
-        logger.info(f"处理原始消息: {message[:100]}..." if len(message) > 100 else f"处理原始消息: {message}")
+        # Log original message for debugging
+        logger.info(f"Processing original message: {message[:100]}..." if len(message) > 100 else f"Processing original message: {message}")
         
-        # 提取TOOLS指令内容
+        # Extract TOOLS instruction content
         cleaned_message, tools_status, tools_content = ToolsProcessor.extract_tools_content(message)
         
-        # 根据TOOLS状态决定后续处理
+        # Determine subsequent processing based on TOOLS status
         if tools_status:
-            # 如果TOOLS状态为TRUE，则处理工具请求并将结果添加到消息中
+            # If TOOLS status is TRUE, process tool request and add result to message
             tools_result = ToolsProcessor.process_tools_request(tools_content)
-            # 构建最终回复，将工具执行结果添加到清理后的消息后面
-            final_message = f"{cleaned_message}\n\n[工具执行结果]: {tools_result}"
+            # Build final response, adding tool execution result after cleaned message
+            final_message = f"{cleaned_message}\n\n[Tool Execution Result]: {tools_result}"
             return final_message
         else:
-            # 如果TOOLS状态为FALSE，则直接返回清理后的消息
+            # If TOOLS status is FALSE, just return cleaned message
             return cleaned_message
         
 # =====================================================================
-# 核心对话函数实现部分
+# Core Dialog Function Implementation
 # =====================================================================
 async def chat_with_cfo(conversation, user_message: str):
     """
-    与CFO助手进行对话的异步生成器函数。
+    Asynchronous generator function for dialogue with CFO assistant.
     
-    参数:
-        conversation (list): 当前对话历史，列表中每项为字典，格式为{"role": "user"/"assistant", "content": "消息内容"}
-        user_message (str): 用户当前输入的消息
+    Parameters:
+        conversation (list): Current dialogue history, each item is a dictionary in format {"role": "user"/"assistant", "content": "message content"}
+        user_message (str): User's current input message
         
-    生成器返回值:
-        tuple: (更新后的对话历史, debug信息(未使用), 是否正在生成)
+    Generator Returns:
+        tuple: (updated dialogue history, debug info (unused), generation status)
     
-    工作流程:
-        1. 将用户消息添加到对话历史
-        2. 构造完整的消息列表，包括系统提示和对话历史
-        3. 调用DeepSeek API获取流式响应
-        4. 逐步接收和处理响应，更新对话历史
-        5. 实时返回更新后的对话历史
+    Workflow:
+        1. Add user message to dialogue history
+        2. Construct complete message list, including system prompt and dialogue history
+        3. Call DeepSeek API to get streaming response
+        4. Receive and process response incrementally, update dialogue history
+        5. Return updated dialogue history in real-time
     """
-    # 系统提示，定义了CFO助手的角色、功能和行为
+    # System prompt, defines the Smart Agent's role, capabilities, and behavior
     system_prompt = (
         """
-        你是一个专业、耐心、懂财务的CFO助手。
-        你的专长领域是Finance、财务、金融等。
-        用户会向你提问，你可以回答他的问题。
-        你可以正常和用户对话，他问什么你就答什么，只要记住自己是个专业的CFO就行了。
-        如果答案暂时不知道，也可以先说不确定。
+        You are a professional, patient, knowledgeable and intelligent assistant.
+        Your areas of expertise include Finance, Pharmaceuticals, Computer Science, and other professional domains.
+        Users will ask you questions, and you can answer them.
+        You can have normal conversations with users, answering whatever they ask, just remember you're a professional assistant.
+        If you don't know the answer, it's okay to say you're not certain.
 
-        【关于你的信息】
-        你的角色：CFO
-        你的名字：用户可以帮你起，不帮你起的话就是CFO
-        你会什么：你是以LLM为内核，会使用工具的AI Agent，专精于Finance（财务、金融）方向。
-        你现在的LLM内核是：DeepSeek
-        你现在的工具库（TOOLS）是：OpenManus
-        你擅长使用的语言：中文，English
+        【About You】
+        Your role: A very smart Agent
+        Your name: Users can give you one, otherwise you're just Smart Agent
+        What you can do: You're an AI Agent with an LLM core that can use tools, with expertise in multiple domains including Finance, Pharmaceuticals, and Computer Science.
+        Your strength is utilizing specialized tools to complete complex tasks in professional domains.
+        Your current LLM core is: DeepSeek
+        Your current tools library (TOOLS) is: OpenManus
+        Languages you're proficient in: Chinese, English
 
-        【关于工具库TOOLS】
-        当你回复用户时，可以正常回复。当且仅当你觉得该任务需要用工具库（TOOLS）才能完成时，你可以启动你的工具库。
-        这些任务包括但不限于：
-        1、使用浏览器查询信息（LLM内核有时间限制，而你自己去查的话可以获得最新消息）
-        2、操作浏览器来做一些事情（比如查询一个文件等）
-        3、下载文件
-        4、对文件进行专业分析
+        【About the Tools Library (TOOLS)】
+        When replying to users, you can respond normally. Only when you think a task requires using the tools library (TOOLS) should you activate your tools.
+        These tasks include but are not limited to:
+        1. Using a browser to search for information (LLM cores have time limitations, but by searching yourself you can get the latest information)
+        2. Operating a browser to do things (like looking up a file, etc.)
+        3. Downloading files
+        4. Performing professional analysis on files
 
-        用户说的话会直接发送给你，但是你回复的话会经过一道过滤器，该过滤器能识别关键信息，并进而启用工具库TOOLS。
-        你可以将你想进行的工具操作写在隐藏语句中。
-        在你的回答中，将包含隐藏回答，隐藏回答在每段对话的最后，并用特殊符号包裹。
-        隐藏回答的格式：[[TOOLS:TRUE/FALSE][隐藏内容]]
-        Example responses 示例回答：
-        "你想要查询最新的特斯拉股票信息吗？那么我可以帮你查询。[[TOOLS:TRUE][搜索最新的特斯拉股票信息]]"
-        "我知道你问的问题，不需要特别搜索。[[TOOLS:FALSE][无]]"
-        "我可以帮你搜索并下载论文Attention is All You Need[[TOOLS:TRUE][使用浏览器搜索论文 Attention is All you Need并找到pdf文件并下载]]"
-        "让我来帮你整理特斯拉的最新财报[[TOOLS:TRUE][搜索并下载特斯拉最新财报]]"
-        "您的问题很简单，用Excel就能计算。我来帮您进行计算。[[TOOLS:TRUE][用Excel计算用户请求的数据...]]"
-        "我知道你问的问题，不需要特别搜索。[[TOOLS:FALSE][无]]"
+        User messages are sent directly to you, but your replies go through a filter that can recognize key information and activate the tools library TOOLS.
+        You can write the tool operations you want to perform in hidden statements.
+        Your answers will contain hidden responses at the end of each dialogue segment, wrapped in special symbols.
+        Hidden response format: [[TOOLS:TRUE/FALSE][hidden content]]
+        Example responses:
+        "Would you like to check the latest Tesla stock information? I can help you look that up. [[TOOLS:TRUE][Search for the latest Tesla stock information]]"
+        "I know the answer to your question, no need for special search. [[TOOLS:FALSE][none]]"
+        "I can help you search and download the paper Attention is All You Need [[TOOLS:TRUE][Use browser to search for the paper Attention is All You Need and find the pdf file and download it]]"
+        "Let me help you organize Tesla's latest financial report [[TOOLS:TRUE][Search and download Tesla's latest financial report]]"
+        "Your question is simple, it can be calculated using Excel. I'll help you calculate it. [[TOOLS:TRUE][Use Excel to calculate the user's requested data...]]"
+        "I know the answer to your question, no need for special search. [[TOOLS:FALSE][none]]"
 
         Always include [[TOOLS STATUS][PROMPT]]
-        请总是在回复的最后标注[[TOOLS STATUS][PROMPT]]
-        对于包含具体内容的PROMPT，请在PROMPT中包含具体的工具请求和请求的内容。
+        Please always mark [[TOOLS STATUS][PROMPT]] at the end of your response
+        For PROMPT with specific content, please include specific tool requests and the content of the request in the PROMPT.
         """
     )
 
-    # 复制对话历史，避免修改原始列表
+    # Copy dialogue history to avoid modifying original list
     updated_conv = list(conversation)
     
-    # 将用户新消息添加到对话历史
+    # Add user's new message to dialogue history
     updated_conv.append({"role": "user", "content": user_message})
 
-    # 构造完整的消息列表，包括系统提示和对话历史
+    # Construct complete message list, including system prompt and dialogue history
     messages = [{"role": "system", "content": system_prompt}] + updated_conv
 
     try:
-        # 调用DeepSeek API，启用流式响应
-        # - model: 使用的模型
-        # - messages: 完整的消息列表
-        # - stream: 启用流式传输
-        # - max_tokens: 生成文本的最大长度
-        # - timeout: 接口超时时间(秒)
+        # Call DeepSeek API, enable streaming response
         stream = client.chat.completions.create(
             model="deepseek-chat",
             messages=messages,
@@ -534,188 +560,439 @@ async def chat_with_cfo(conversation, user_message: str):
             timeout=30
         )
     except Exception as e:
-        # 捕获API调用异常，添加错误信息到对话历史并返回
-        updated_conv.append({"role": "assistant", "content": f"CFO：接口调用异常：{e}"})
-        yield updated_conv, "", False  # 返回更新后的对话历史，无debug信息，不在生成状态
+        # Catch API call exceptions, add error message to dialogue history and return
+        updated_conv.append({"role": "assistant", "content": f"Smart Agent: Interface call exception: {e}"})
+        yield updated_conv, "", False  # Return updated dialogue history, no debug info, not in generating state
         return
 
-    # 用于累积部分响应的列表
+    # List for accumulating partial responses
     partial_response = []
     
-    # 逐块处理流式响应
+    # Process streaming response chunk by chunk
     for chunk in stream:
-        # 安全提取本次增量内容
+        # Safely extract this increment's content
         try:
             content = chunk.choices[0].delta.content
         except Exception:
-            content = ""  # 如果提取失败，使用空字符串
+            content = ""  # If extraction fails, use empty string
 
         if content:
-            # 将新内容添加到部分响应中
+            # Add new content to partial response
             partial_response.append(content)
             current_text = "".join(partial_response)
             
-            # 处理对话历史：如果最后一条是用户消息，添加助手回复；否则更新助手回复
+            # Process dialogue history: if last message is from user, add assistant reply; otherwise update assistant reply
             if updated_conv[-1]["role"] == "user":
                 updated_conv.append({"role": "assistant", "content": current_text})
             else:
                 updated_conv[-1]["content"] = current_text
 
-            # 返回更新后的对话历史，正在生成状态
+            # Return updated dialogue history, generating state
             yield updated_conv, "", True
             
-            # 短暂延迟，避免过快更新导致界面不响应
+            # Brief delay to avoid interface becoming unresponsive due to too frequent updates
             await asyncio.sleep(0.05)
 
-    """
-    聊天窗口回复流程/聊天对话/聊天框/对话框
-    """
-
-    # 完整的LLM回复
+    # Complete LLM response
     final_response = "".join(partial_response)
     
-    # 使用ToolsProcessor处理LLM回复 (识别隐藏内容)
-    processed_response = ToolsProcessor.process_message(final_response)
+    # Check if we need to process tools
+    if "[[TOOLS:TRUE" in final_response:
+        # Extract the tool instructions
+        cleaned_message, tools_status, tools_content = ToolsProcessor.extract_tools_content(final_response)
+        
+        if tools_status:
+            # Show that tool processing is starting
+            if updated_conv[-1]["role"] == "assistant":
+                updated_conv[-1]["content"] = f"{cleaned_message}\n\n[Tool Processing Started...]"
+            else:
+                updated_conv.append({"role": "assistant", "content": f"{cleaned_message}\n\n[Tool Processing Started...]"})
+            
+            # Return update to show tool processing has started
+            yield updated_conv, "", True
+            
+            # Set up progress tracking
+            progress_updates = []
+            
+            # Progress callback function
+            def progress_handler(message):
+                progress_updates.append(message)
+                # Update conversation with progress in real-time
+                if updated_conv[-1]["role"] == "assistant":
+                    current_content = updated_conv[-1]["content"]
+                    if "[Tool Processing Progress]" not in current_content:
+                        updated_content = f"{current_content}\n\n[Tool Processing Progress]\n{message}"
+                    else:
+                        parts = current_content.split("[Tool Processing Progress]")
+                        updated_content = f"{parts[0]}[Tool Processing Progress]{parts[1]}\n{message}"
+                    
+                    updated_conv[-1]["content"] = updated_content
+                    # We can't yield here directly - we'll store updates and process them later
+            
+            # Process the tool request with progress tracking
+            tools_result = await ToolsProcessor.process_tools_request_async_with_progress(
+                tools_content, progress_callback=progress_handler
+            )
+            
+            # After tool execution, update conversation with latest progress
+            if updated_conv[-1]["role"] == "assistant":
+                current_content = updated_conv[-1]["content"]
+                if "[Tool Processing Progress]" in current_content:
+                    progress_text = "\n".join(progress_updates)
+                    parts = current_content.split("[Tool Processing Progress]")
+                    updated_content = f"{parts[0]}[Tool Processing Progress]\n{progress_text}\n\n[Tool Execution Complete]"
+                else:
+                    progress_text = "\n".join(progress_updates)
+                    updated_content = f"{current_content}\n\n[Tool Processing Progress]\n{progress_text}\n\n[Tool Execution Complete]"
+                
+                updated_conv[-1]["content"] = updated_content
+                yield updated_conv, "", True
+            
+            # Now generate a summary of the tool results
+            summary_prompt = f"""
+            You have just used tools to accomplish a task for the user. 
+            Here is the original request: "{user_message}"
+            
+            The tools executed with the following result:
+            {tools_result}
+            
+            Please provide a clear, concise, and helpful summary of:
+            1. What tools were used and why
+            2. What was accomplished
+            3. Key findings or insights from the tool execution
+            4. Any relevant next steps or recommendations
+            
+            Format your response as a professional summary that focuses on the most important information.
+            """
+            
+            # Add summary request to messages
+            summary_messages = [{"role": "system", "content": system_prompt}] + [
+                {"role": "assistant", "content": cleaned_message},
+                {"role": "user", "content": summary_prompt}
+            ]
+            
+            # Update the UI to show summary is being generated
+            if updated_conv[-1]["role"] == "assistant":
+                current_content = updated_conv[-1]["content"]
+                updated_conv[-1]["content"] = f"{current_content}\n\n[Generating Summary...]"
+                yield updated_conv, "", True
+            
+            try:
+                # Call DeepSeek API for summary
+                summary_stream = client.chat.completions.create(
+                    model="deepseek-chat",
+                    messages=summary_messages,
+                    stream=True,
+                    max_tokens=512,
+                    timeout=30
+                )
+                
+                # Process summary stream
+                summary_parts = []
+                
+                for chunk in summary_stream:
+                    try:
+                        content = chunk.choices[0].delta.content
+                    except Exception:
+                        content = ""
+                    
+                    if content:
+                        summary_parts.append(content)
+                        current_summary = "".join(summary_parts)
+                        
+                        # Update conversation with ongoing summary
+                        current_content = updated_conv[-1]["content"]
+                        if "[Generating Summary...]" in current_content:
+                            parts = current_content.split("[Generating Summary...]")
+                            updated_conv[-1]["content"] = f"{parts[0]}\n\n[Tool Execution Summary]\n{current_summary}"
+                        else:
+                            updated_conv[-1]["content"] = f"{current_content}\n\n[Tool Execution Summary]\n{current_summary}"
+                        
+                        yield updated_conv, "", True
+                        await asyncio.sleep(0.05)
+                
+                # Final summary
+                final_summary = "".join(summary_parts)
+                
+                # Format the final processed response with tool results and summary
+                processed_response = f"""
+{cleaned_message}
+
+[Tool Execution Complete]
+
+[Tool Execution Summary]
+{final_summary}
+"""
+                
+            except Exception as e:
+                logger.error(f"Error generating summary: {e}")
+                # If summary generation fails, use a simpler format
+                processed_response = f"""
+{cleaned_message}
+
+[Tool Execution Complete]
+
+[Tool Results]
+{tools_result}
+
+[Note: Summary generation failed - {str(e)}]
+"""
+        else:
+            # If no tools were used (FALSE), just process the message normally
+            processed_response = ToolsProcessor.process_message(final_response)
+    else:
+        # If no tool markers at all, use the response as is
+        processed_response = final_response
     
-    # 更新对话历史中的最后一条助手回复
+    # Update the final assistant message with the processed response
     if updated_conv[-1]["role"] == "assistant":
         updated_conv[-1]["content"] = processed_response
+    else:
+        updated_conv.append({"role": "assistant", "content": processed_response})
     
     print("🧾 processed_response =", processed_response)
     print("📝 updated_conv[-1]:", updated_conv[-1])
     print("📤 yield to frontend:\n", updated_conv[-1]["content"])
-
     
-    # 最后一次返回完整对话历史，生成已结束
+    # Final return of complete dialogue history, generation ended
     yield updated_conv, "", False
 
 
 
 # =====================================================================
-# Gradio用户界面部分
+# Gradio User Interface Section
 # =====================================================================
-# 创建Gradio块，设置应用标题
-with gr.Blocks(title="问CFO") as demo:
-    # 页面标题和描述
-    gr.Markdown("## 问CFO\n以下是一个财务智能聊天演示。可以连续上下文提问。")
+# Create Gradio block, set application title
+with gr.Blocks(title="Smart Agent", css="""
+    /* Tool processing progress styles */
+    .tool-progress {
+        background-color: #f5f7ff;
+        border-left: 3px solid #4a6fa5;
+        padding: 8px 12px;
+        margin-top: 10px;
+        border-radius: 4px;
+        font-family: monospace;
+        white-space: pre-wrap;
+    }
+    
+    /* Tool execution summary styles */
+    .tool-summary {
+        background-color: #f0f7f0;
+        border-left: 3px solid #4caf50;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 4px;
+    }
+    
+    /* Error message styles */
+    .error-message {
+        background-color: #fff0f0;
+        border-left: 3px solid #ff5252;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 4px;
+    }
+""") as demo:
+    # Page title and description
+    gr.Markdown("## Smart Agent\nBelow is an intelligent assistant demonstration. You can ask continuous contextual questions.")
 
-    # 聊天界面组件：显示对话历史
+    # Chat interface component with custom message rendering
+    def format_message(msg):
+        """Format chat messages to enhance tool progress display"""
+        if isinstance(msg, tuple) and len(msg) == 2:
+            # In tuples format, msg is (user_message, assistant_message)
+            # We'll only format the assistant's message
+            content = msg[1]
+        else:
+            # Fallback - shouldn't happen with correct format
+            content = str(msg)
+        
+        # Replace tool processing sections with styled divs
+        if "[Tool Processing Progress]" in content:
+            parts = content.split("[Tool Processing Progress]", 1)
+            progress_parts = parts[1].split("[Tool Execution Complete]", 1)
+            progress_content = progress_parts[0].strip()
+            
+            formatted_content = f"""
+            {parts[0]}
+            <div class="tool-progress">
+                <div><strong>Tool Processing Progress:</strong></div>
+                <pre>{progress_content}</pre>
+            </div>
+            """
+            
+            # Add execution complete and summary if available
+            if len(progress_parts) > 1 and "[Tool Execution Summary]" in progress_parts[1]:
+                summary_parts = progress_parts[1].split("[Tool Execution Summary]", 1)
+                summary_content = summary_parts[1].strip()
+                
+                formatted_content += f"""
+                <div class="tool-summary">
+                    <div><strong>Tool Execution Summary:</strong></div>
+                    <div>{summary_content}</div>
+                </div>
+                """
+            elif len(progress_parts) > 1:
+                formatted_content += progress_parts[1]
+                
+            return (msg[0], formatted_content)
+            
+        # Handle execution summary without progress
+        elif "[Tool Execution Summary]" in content:
+            parts = content.split("[Tool Execution Summary]", 1)
+            
+            formatted_content = f"""
+            {parts[0]}
+            <div class="tool-summary">
+                <div><strong>Tool Execution Summary:</strong></div>
+                <div>{parts[1]}</div>
+            </div>
+            """
+            return (msg[0], formatted_content)
+            
+        # Handle error messages
+        elif "[Error]" in content:
+            parts = content.split("[Error]", 1)
+            
+            formatted_content = f"""
+            {parts[0]}
+            <div class="error-message">
+                <div><strong>Error:</strong></div>
+                <div>{parts[1]}</div>
+            </div>
+            """
+            return (msg[0], formatted_content)
+            
+        # Regular message - no formatting needed
+        return msg
+    
+    # Create chatbot with default type (tuples)
     chatbot = gr.Chatbot(
-        label="CFO 对话（连续聊天）", 
-        type="messages",  # 使用消息类型展示样式 
-        height=600  # 设置聊天窗口高度
+        label="Smart Agent Conversation (Continuous Chat)", 
+        render=format_message,
+        height=600,
     )
     
-    # 状态管理组件
-    # - conv_state: 存储完整对话历史的状态变量
-    # - generating_state: 标记是否正在生成回复的状态变量
-    conv_state = gr.State([])  # 初始为空列表
-    generating_state = gr.State(False)  # 初始为非生成状态
+    # State management components
+    # - conv_state: state variable for storing complete dialogue history
+    # - generating_state: state variable marking whether reply is being generated
+    conv_state = gr.State([])  # Initially empty list
+    generating_state = gr.State(False)  # Initially not generating
 
-    # 功能设置部分
-    with gr.Accordion("设置", open=False):
+    # Function settings section
+    with gr.Accordion("Settings", open=False):
         hide_tools_toggle = gr.Checkbox(
-            label="隐藏TOOLS指令内容", 
+            label="Hide TOOLS instruction content", 
             value=HIDE_TOOLS_CONTENT,
-            info="选中时将隐藏回复中的[[TOOLS:...][...]]指令内容"
+            info="When checked, [[TOOLS:...][...]] instruction content will be hidden in replies"
         )
     
-    # 输入和控制按钮行
+    # Input and control button row
     with gr.Row():
-        # 用户输入文本框
+        # User input text box
         user_input = gr.Textbox(
-            label="请输入您的问题",
-            placeholder="例如：今年的财报如何解读？", 
-            lines=1  # 单行输入
+            label="Please enter your question",
+            placeholder="Example: How to interpret this year's financial report?", 
+            lines=1  # Single line input
         )
-        # 发送按钮
-        send_btn = gr.Button("发送")
-        # 停止按钮(初始隐藏)
-        stop_btn = gr.Button("停止", visible=False)
+        # Send button
+        send_btn = gr.Button("Send")
+        # Stop button (initially hidden)
+        stop_btn = gr.Button("Stop", visible=False)
 
     # =====================================================================
-    # 交互功能实现部分
+    # Interactive Functionality Implementation
     # =====================================================================
     
-    # 更新HIDE_TOOLS_CONTENT设置的函数
+    # Function to update HIDE_TOOLS_CONTENT setting
     def update_hide_tools_setting(value):
         """
-        更新是否隐藏TOOLS指令内容的设置
+        Update setting for whether to hide TOOLS instruction content
         
-        参数:
-            value (bool): 是否隐藏TOOLS指令内容
+        Parameters:
+            value (bool): Whether to hide TOOLS instruction content
             
-        返回值:
+        Returns:
             None
         """
         global HIDE_TOOLS_CONTENT
         HIDE_TOOLS_CONTENT = value
     
-    # 响应用户消息的异步函数
+    # Helper function to convert message format from dictionary to tuples
+    def convert_to_tuples(conversation):
+        """Convert conversation from dict format to tuples format for Gradio Chatbot"""
+        tuples = []
+        for i in range(0, len(conversation), 2):
+            if i+1 < len(conversation):
+                if conversation[i]["role"] == "user" and conversation[i+1]["role"] == "assistant":
+                    tuples.append((conversation[i]["content"], conversation[i+1]["content"]))
+        return tuples
+    
+    # Asynchronous function to respond to user messages
     async def respond(user_message, conversation, generating):
         """
-        处理用户输入消息并获取助手回复的异步函数
+        Asynchronous function to process user input messages and get assistant replies
         
-        参数:
-            user_message (str): 用户输入的消息
-            conversation (list): 当前对话历史
-            generating (bool): 是否正在生成回复
+        Parameters:
+            user_message (str): User input message
+            conversation (list): Current dialogue history
+            generating (bool): Whether reply is being generated
             
-        生成器返回值:
-            tuple: (用于显示的对话历史, 存储的对话历史, 清空后的用户输入, 生成状态)
+        Generator Returns:
+            tuple: (dialogue history for display, stored dialogue history, cleared user input, generation state)
         """
-        # 如果已经在生成中，忽略新请求
+        # If already generating, ignore new request
         if generating:
-            yield conversation, conversation, user_message, generating
+            yield convert_to_tuples(conversation), conversation, user_message, generating
             return
         
-        # 调用chat_with_cfo函数获取流式回复
+        # Call chat_with_cfo function to get streaming reply
         async for updated_conv, _debug, is_generating in chat_with_cfo(conversation, user_message):
-            # 返回更新后的对话历史和状态
-            yield updated_conv, updated_conv, "", is_generating
+            # Return updated dialogue history and state
+            yield convert_to_tuples(updated_conv), updated_conv, "", is_generating
     
-    # 切换按钮可见性的函数
+    # Function to toggle button visibility
     def toggle_button_visibility(generating):
         """
-        根据生成状态切换发送和停止按钮的可见性
+        Toggle send and stop button visibility based on generation state
         
-        参数:
-            generating (bool): 是否正在生成回复
+        Parameters:
+            generating (bool): Whether reply is being generated
             
-        返回值:
-            tuple: (发送按钮更新, 停止按钮更新)
+        Returns:
+            tuple: (send button update, stop button update)
         """
-        # 使用 gr.update() 而不是 gr.Button.update()
+        # Use gr.update() instead of gr.Button.update()
         return gr.update(visible=not generating), gr.update(visible=generating)
     
-    # 停止生成的函数
+    # Function to stop generation
     def stop_generation(conversation):
         """
-        停止生成回复的函数
+        Function to stop reply generation
         
-        参数:
-            conversation (list): 当前对话历史
+        Parameters:
+            conversation (list): Current dialogue history
             
-        返回值:
-            tuple: (对话历史, 生成状态设为False)
+        Returns:
+            tuple: (dialogue history, generation state set to False)
         """
         return conversation, False
     
     # =====================================================================
-    # 事件绑定部分
+    # Event Binding Section
     # =====================================================================
     
-    # 隐藏TOOLS内容切换事件处理
+    # Hide TOOLS content toggle event handler
     hide_tools_toggle.change(
         fn=update_hide_tools_setting,
         inputs=[hide_tools_toggle],
         outputs=[]
     )
     
-    # 发送按钮点击事件处理
-    # 1. 切换按钮可见性(显示停止按钮)
-    # 2. 调用respond函数处理消息
-    # 3. 切换按钮可见性(显示发送按钮)
+    # Send button click event handler
+    # 1. Toggle button visibility (show stop button)
+    # 2. Call respond function to process message
+    # 3. Toggle button visibility (show send button)
     send_event = send_btn.click(
         fn=toggle_button_visibility,
         inputs=[gr.State(True)],
@@ -724,16 +1001,16 @@ with gr.Blocks(title="问CFO") as demo:
         fn=respond,
         inputs=[user_input, conv_state, generating_state],
         outputs=[chatbot, conv_state, user_input, generating_state],
-        queue=True  # 启用队列，避免多个请求冲突
+        queue=True  # Enable queue to avoid request conflicts
     ).then(
         fn=toggle_button_visibility,
         inputs=[gr.State(False)],
         outputs=[send_btn, stop_btn],
     )
     
-    # 停止按钮点击事件处理
-    # 1. 调用stop_generation函数停止生成
-    # 2. 切换按钮可见性
+    # Stop button click event handler
+    # 1. Call stop_generation function to stop generation
+    # 2. Toggle button visibility
     stop_btn.click(
         fn=stop_generation,
         inputs=[conv_state],
@@ -744,7 +1021,7 @@ with gr.Blocks(title="问CFO") as demo:
         outputs=[send_btn, stop_btn]
     )
     
-    # 用户输入框回车键事件处理(与发送按钮点击行为相同)
+    # User input box enter key event handler (same behavior as send button click)
     user_input.submit(
         fn=toggle_button_visibility,
         inputs=[gr.State(True)],
@@ -760,10 +1037,12 @@ with gr.Blocks(title="问CFO") as demo:
         outputs=[send_btn, stop_btn],
     )
 
+
+
 # =====================================================================
-# 应用启动部分
+# Application Launch Section
 # =====================================================================
-# 启用Gradio队列功能，支持并发请求处理
+# Enable Gradio queue functionality, support concurrent request processing
 demo.queue()
-# 启动Web服务
+# Start web service
 demo.launch()

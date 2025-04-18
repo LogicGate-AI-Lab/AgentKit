@@ -1,0 +1,65 @@
+2025-04-17 22:54:39.185 | INFO     | open_manus.app.agent.manus:set_progress_callback:58 - Progress callback set for Manus agent
+2025-04-17 22:54:39.185 | INFO     | open_manus.app.agent.base:run:141 - Executing step 1/20
+2025-04-17 22:54:43.691 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=2427, Completion=31, Cumulative Input=2427, Cumulative Completion=31, Total=2458, Cumulative Total=2458
+2025-04-17 22:54:43.691 | INFO     | open_manus.app.agent.toolcall:think:114 - ✨ Manus's thoughts: 
+2025-04-17 22:54:43.691 | INFO     | open_manus.app.agent.toolcall:think:115 - 🛠️ Manus selected 1 tools to use
+2025-04-17 22:54:43.691 | INFO     | open_manus.app.agent.toolcall:think:119 - 🧰 Tools being prepared: ['browser_use']
+2025-04-17 22:54:43.692 | INFO     | open_manus.app.agent.toolcall:think:122 - 🔧 Tool arguments: {"action":"web_search","query":"NVIDIA latest financial report earnings report"}
+2025-04-17 22:54:43.692 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - browser_use]: Starting tool execution
+2025-04-17 22:54:43.692 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Starting tool execution
+2025-04-17 22:54:43.692 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - browser_use]: Starting execution of browser_use
+2025-04-17 22:54:43.693 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Starting execution of browser_use
+2025-04-17 22:54:43.693 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - browser_use]: Executing with arguments: {'action': 'web_search', 'query': 'NVIDIA latest financial report earnings report'}
+2025-04-17 22:54:43.693 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Executing with arguments: {'action': 'web_search', 'query': 'NVIDIA latest financial report earnings report'}
+2025-04-17 22:54:43.693 | INFO     | open_manus.app.agent.toolcall:execute_tool:277 - 🔧 Activating tool: 'browser_use'...
+2025-04-17 22:54:44.633 | INFO     | open_manus.app.tool.web_search:_try_all_engines:299 - 🔎 Attempting search with Google...
+2025-04-17 22:54:45.123 | WARNING  | open_manus.app.tool.web_search:fetch_content:132 - Failed to fetch content from https://investor.nvidia.com/financial-info/financial-reports/default.aspx: HTTP 403
+2025-04-17 22:54:46.081 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - browser_use]: Completed execution of browser_use
+2025-04-17 22:54:46.081 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Completed execution of browser_use
+2025-04-17 22:54:46.081 | INFO     | open_manus.app.agent.toolcall:act:210 - 🎯 Tool 'browser_use' completed. Result: Observed output of cmd `browser_use` executed:
+Search results for 'NVIDIA latest financial report earnings report':
+
+1. Financial Reports - NVIDIA Corporation
+   URL: https://investor.nvidia.com/financial-info/financial-reports/default.aspx
+   Description:  NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2025. Record quarterly revenue of $39.3 billion, up 12% from Q3 and up 78% from a year ago ... 
+
+Metadata:
+- Total results: 1
+- Language: en
+- Country: us
+2025-04-17 22:54:46.081 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - browser_use]: Tool execution completed
+2025-04-17 22:54:46.081 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Tool execution completed
+2025-04-17 22:54:46.081 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - browser_use]: Generating summary
+2025-04-17 22:54:46.081 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Generating summary
+2025-04-17 22:54:46.081 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - browser_use]: Generating summary of tool results
+2025-04-17 22:54:46.081 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Generating summary of tool results
+2025-04-17 22:54:55.085 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=167, Completion=137, Cumulative Input=2594, Cumulative Completion=168, Total=304, Cumulative Total=2762
+2025-04-17 22:54:55.085 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - browser_use]: Summary generation complete
+2025-04-17 22:54:55.085 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [browser_use] Summary generation complete
+2025-04-17 22:54:55.086 | INFO     | open_manus.app.agent.base:run:141 - Executing step 2/20
+2025-04-17 22:54:55.395 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:54:55.395 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:54:56.706 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:54:56.707 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:54:58.880 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:54:58.881 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:55:00.224 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:55:00.224 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:55:03.990 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:55:03.990 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:55:09.470 | ERROR    | open_manus.app.llm:ask_tool:831 - OpenAI API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:55:09.470 | ERROR    | open_manus.app.llm:ask_tool:837 - API error: Error code: 400 - {'error': {'message': "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-04-17 22:55:09.471 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:55:09.471 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Starting resource cleanup
+2025-04-17 22:55:09.674 | INFO     | open_manus.app.agent.toolcall:cleanup:372 - 🧹 Cleaning up resources for agent 'Manus'...
+2025-04-17 22:55:09.675 | DEBUG    | open_manus.app.agent.toolcall:cleanup:378 - 🧼 Cleaning up tool: browser_use
+2025-04-17 22:55:09.675 | INFO     | open_manus.app.agent.toolcall:cleanup:384 - ✨ Cleanup complete for agent 'Manus'.
+2025-04-17 22:55:09.675 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - Cleanup]: Resource cleanup complete
+2025-04-17 22:55:09.675 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Resource cleanup complete
+2025-04-17 22:55:09.676 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:55:09.676 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Starting resource cleanup
+2025-04-17 22:55:09.676 | INFO     | open_manus.app.agent.toolcall:cleanup:372 - 🧹 Cleaning up resources for agent 'Manus'...
+2025-04-17 22:55:09.677 | DEBUG    | open_manus.app.agent.toolcall:cleanup:378 - 🧼 Cleaning up tool: browser_use
+2025-04-17 22:55:09.677 | INFO     | open_manus.app.agent.toolcall:cleanup:384 - ✨ Cleanup complete for agent 'Manus'.
+2025-04-17 22:55:09.677 | INFO     | open_manus.app.agent.toolcall:report_progress:57 - [Progress - Cleanup]: Resource cleanup complete
+2025-04-17 22:55:09.677 | INFO     | open_manus.app.agent.manus:report_progress:72 - Progress update: [Cleanup] Resource cleanup complete

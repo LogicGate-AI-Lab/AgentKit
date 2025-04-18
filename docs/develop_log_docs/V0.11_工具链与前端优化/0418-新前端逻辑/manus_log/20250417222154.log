@@ -1,0 +1,20 @@
+2025-04-17 22:22:47.470 | INFO     | open_manus.app.agent.manus:set_progress_callback:58 - Progress callback set for Manus agent
+2025-04-17 22:22:47.471 | INFO     | open_manus.app.agent.base:run:141 - Executing step 1/20
+2025-04-17 22:22:53.809 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=2440, Completion=45, Cumulative Input=2440, Cumulative Completion=45, Total=2485, Cumulative Total=2485
+2025-04-17 22:22:53.810 | INFO     | open_manus.app.agent.toolcall:think:107 - ✨ Manus's thoughts: 
+2025-04-17 22:22:53.810 | INFO     | open_manus.app.agent.toolcall:think:108 - 🛠️ Manus selected 1 tools to use
+2025-04-17 22:22:53.810 | INFO     | open_manus.app.agent.toolcall:think:112 - 🧰 Tools being prepared: ['browser_use']
+2025-04-17 22:22:53.811 | INFO     | open_manus.app.agent.toolcall:think:115 - 🔧 Tool arguments: {"action":"web_search","query":"NVIDIA latest financial report 10-Q or 10-K site:sec.gov OR site:nvidia.com"}
+2025-04-17 22:22:53.811 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Starting tool execution
+2025-04-17 22:22:53.812 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:22:53.812 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:29:27.278 | INFO     | open_manus.app.agent.manus:set_progress_callback:58 - Progress callback set for Manus agent
+2025-04-17 22:29:27.279 | INFO     | open_manus.app.agent.base:run:141 - Executing step 1/20
+2025-04-17 22:29:33.146 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=2444, Completion=45, Cumulative Input=4884, Cumulative Completion=90, Total=2489, Cumulative Total=4974
+2025-04-17 22:29:33.146 | INFO     | open_manus.app.agent.toolcall:think:107 - ✨ Manus's thoughts: 
+2025-04-17 22:29:33.154 | INFO     | open_manus.app.agent.toolcall:think:108 - 🛠️ Manus selected 1 tools to use
+2025-04-17 22:29:33.155 | INFO     | open_manus.app.agent.toolcall:think:112 - 🧰 Tools being prepared: ['browser_use']
+2025-04-17 22:29:33.155 | INFO     | open_manus.app.agent.toolcall:think:115 - 🔧 Tool arguments: {"action":"web_search","query":"NVIDIA latest financial report 10-Q or 10-K site:sec.gov OR site:nvidia.com"}
+2025-04-17 22:29:33.155 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - browser_use]: Starting tool execution
+2025-04-17 22:29:33.155 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
+2025-04-17 22:29:33.156 | INFO     | open_manus.app.agent.toolcall:report_progress:49 - [Progress - Cleanup]: Starting resource cleanup
