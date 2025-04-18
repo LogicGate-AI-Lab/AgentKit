@@ -1,0 +1,19 @@
+2025-04-13 23:36:27,015 - __main__ - INFO - 应用启动，日志保存至: /home/jeffliu/projects_ubuntu/wencfo/app/log/2025-04-13_23-36-27.log
+2025-04-13 23:36:27,015 - __main__ - INFO - 标准输出和标准错误流已重定向到日志文件: /home/jeffliu/projects_ubuntu/wencfo/app/log/2025-04-13_23-36-27.log
+Traceback (most recent call last):
+  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/logging/config.py", line 587, in configure
+formatters[name] = self.configure_formatter(^^^^^^^^^^^^^^^^^^^^^^^^^  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/logging/config.py", line 699, in configure_formatter
+result = self.configure_custom(config)^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/logging/config.py", line 490, in configure_custom
+result = c(**kwargs)^^^^^^^^^^^  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/uvicorn/logging.py", line 42, in __init__
+self.use_colors = sys.stdout.isatty()^^^^^^^^^^^^^^^^^AttributeError: 'TeeOutput' object has no attribute 'isatty'The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/jeffliu/projects_ubuntu/wencfo/app/__main__.py", line 730, in <module>
+demo.launch()  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/blocks.py", line 2638, in launch
+) = http_server.start_server(^^^^^^^^^^^^^^^^^^^^^^^^^  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/gradio/http_server.py", line 130, in start_server
+config = uvicorn.Config(^^^^^^^^^^^^^^^  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/uvicorn/config.py", line 274, in __init__
+self.configure_logging()  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/site-packages/uvicorn/config.py", line 366, in configure_logging
+logging.config.dictConfig(self.log_config)  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/logging/config.py", line 942, in dictConfig
+dictConfigClass(config).configure()  File "/home/jeffliu/miniconda3/envs/wencfo/lib/python3.12/logging/config.py", line 590, in configure
+raise ValueError('Unable to configure 'ValueError: Unable to configure formatter 'default'

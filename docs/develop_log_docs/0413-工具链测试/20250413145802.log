@@ -1,0 +1,234 @@
+2025-04-13 14:59:58.459 | INFO     | open_manus.app.agent.base:run:141 - Executing step 1/20
+2025-04-13 15:00:03.466 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=2421, Completion=34, Cumulative Input=2421, Cumulative Completion=34, Total=2455, Cumulative Total=2455
+2025-04-13 15:00:03.466 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: 
+2025-04-13 15:00:03.466 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:00:03.466 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:00:03.467 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"web_search","query":"TSLA stock price today opening price and current date"}
+2025-04-13 15:00:03.467 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:00:04.135 | INFO     | open_manus.app.tool.web_search:_try_all_engines:299 - 🔎 Attempting search with Google...
+2025-04-13 15:00:05.335 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Search results for 'TSLA stock price today opening price and current date':
+
+1. Result 1
+   URL: https://en.wikipedia.org/wiki/File:Tesla_logo.png
+   Description:  Tesla, Inc. is an American multinational automotive and clean energy company. Headquartered in Austin, Texas, it designs, manufactures and sells battery electric vehicles, stationary battery energy storage devices from home to grid-scale, solar...   Wikipedia 
+   Content: File:Tesla logo.png - Wikipedia Jump to content From Wikipedia, the free encyclopedia File File history File usage Size of this preview: 600 × 600 pixels . Other resolutions: 240 × 240 pixels | 480 × 480 pixels | 768 × 768 pixels | 1,024 × 1,024 pixels | 2,500 × 2,500 pixels . Original file (2,500 × 2,500 pixels, file size: 47 KB, MIME type: image/png ) This is a file from the Wikimedia Commons . Information from its description page there is shown below. Commons is a freely licensed media file repository. You can help . Summary Description Tesla logo.png English: This is the official Tesla Company logo. Date 17 January 2021 Source Own work Author Sushilkrpro Other versions This file has been superseded by Tesla Motors.svg . It is recommended to use the other file. Please note that deleting superseded images requires consent . Licensing Public domain Public domain false false This logo image consists only of simple geometric shapes or text. It does not meet the threshold of originality...
+
+Metadata:
+- Total results: 1
+- Language: en
+- Country: us
+2025-04-13 15:00:05.335 | INFO     | open_manus.app.agent.base:run:141 - Executing step 2/20
+2025-04-13 15:00:13.745 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=3040, Completion=84, Cumulative Input=5461, Cumulative Completion=118, Total=3124, Cumulative Total=5579
+2025-04-13 15:00:13.745 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: The current search result does not provide the required information about Tesla's stock price (TSLA) or the current date. Let me refine the search query to directly fetch the stock price and date from a reliable financial source.
+2025-04-13 15:00:13.746 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:00:13.746 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:00:13.746 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"web_search","query":"TSLA stock price today opening price and current date site:finance.yahoo.com"}
+2025-04-13 15:00:13.746 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:00:13.746 | INFO     | open_manus.app.tool.web_search:_try_all_engines:299 - 🔎 Attempting search with Google...
+2025-04-13 15:00:14.487 | WARNING  | open_manus.app.tool.web_search:fetch_content:132 - Failed to fetch content from https://finance.yahoo.com/quote/TSLA/: HTTP 429
+2025-04-13 15:00:17.645 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Search results for 'TSLA stock price today opening price and current date site:finance.yahoo.com':
+
+1. Tesla, Inc. (TSLA) Stock Price, News, Quote & History - Yahoo Finance
+   URL: https://finance.yahoo.com/quote/TSLA/
+   Description:  Find the latest Tesla, Inc. (TSLA) stock quote, history, news and other vital information to help you with your stock trading and investing. 
+
+Metadata:
+- Total results: 1
+- Language: en
+- Country: us
+2025-04-13 15:00:17.646 | INFO     | open_manus.app.agent.base:run:141 - Executing step 3/20
+2025-04-13 15:00:26.105 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=3487, Completion=45, Cumulative Input=8948, Cumulative Completion=163, Total=3532, Cumulative Total=9111
+2025-04-13 15:00:26.105 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: 
+2025-04-13 15:00:26.105 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:00:26.105 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:00:26.105 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"extract_content","goal":"Extract the opening price of TSLA stock today and the current date from the Yahoo Finance page."}
+2025-04-13 15:00:26.105 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:00:32.909 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=876, Completion=74, Cumulative Input=9824, Cumulative Completion=237, Total=950, Cumulative Total=10061
+2025-04-13 15:00:32.910 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Extracted from page:
+{'text': 'The page content provided does not contain the opening price of TSLA stock today or the current date. The content appears to be a navigation menu or error message from Yahoo Finance, and the relevant financial data is missing.', 'metadata': {'source': 'Yahoo Finance'}}
+
+2025-04-13 15:00:32.910 | INFO     | open_manus.app.agent.base:run:141 - Executing step 4/20
+2025-04-13 15:00:40.384 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=3846, Completion=72, Cumulative Input=13670, Cumulative Completion=309, Total=3918, Cumulative Total=13979
+2025-04-13 15:00:40.384 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: It seems the extraction did not retrieve the required data. Let me manually navigate to the Yahoo Finance page for Tesla (TSLA) and extract the opening price and current date.
+2025-04-13 15:00:40.384 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:00:40.384 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:00:40.384 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"go_to_url","url":"https://finance.yahoo.com/quote/TSLA/"}
+2025-04-13 15:00:40.384 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:00:41.465 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Navigated to https://finance.yahoo.com/quote/TSLA/
+2025-04-13 15:00:41.465 | INFO     | open_manus.app.agent.base:run:141 - Executing step 5/20
+2025-04-13 15:00:52.627 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=4183, Completion=45, Cumulative Input=17853, Cumulative Completion=354, Total=4228, Cumulative Total=18207
+2025-04-13 15:00:52.628 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: 
+2025-04-13 15:00:52.628 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:00:52.628 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:00:52.628 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"extract_content","goal":"Extract the opening price of TSLA stock today and the current date from the Yahoo Finance page."}
+2025-04-13 15:00:52.628 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:00:59.539 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=876, Completion=77, Cumulative Input=18729, Cumulative Completion=431, Total=953, Cumulative Total=19160
+2025-04-13 15:00:59.539 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Extracted from page:
+{'text': 'The page content provided does not contain the opening price of TSLA stock today or the current date. The content appears to be a navigation menu for Yahoo Finance and related sections, but the specific stock data is missing.', 'metadata': {'source': 'Yahoo Finance page snippet'}}
+
+2025-04-13 15:00:59.539 | INFO     | open_manus.app.agent.base:run:141 - Executing step 6/20
+2025-04-13 15:01:08.119 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=4544, Completion=73, Cumulative Input=23273, Cumulative Completion=504, Total=4617, Cumulative Total=23777
+2025-04-13 15:01:08.119 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: It appears the extraction tool is unable to locate the required data on the Yahoo Finance page. Let me try an alternative approach by scrolling down the page to ensure the stock price and date information is visible, and then attempt the extraction again.
+2025-04-13 15:01:08.119 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:01:08.119 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:01:08.119 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"scroll_down","scroll_amount":500}
+2025-04-13 15:01:08.120 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:01:08.122 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Scrolled down by 500 pixels
+2025-04-13 15:01:08.122 | INFO     | open_manus.app.agent.base:run:141 - Executing step 7/20
+2025-04-13 15:01:16.145 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=4874, Completion=74, Cumulative Input=28147, Cumulative Completion=578, Total=4948, Cumulative Total=28725
+2025-04-13 15:01:16.145 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: Now that the page has been scrolled down, let's attempt to extract the opening price of TSLA stock today and the current date again.
+2025-04-13 15:01:16.145 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:01:16.145 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:01:16.145 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"extract_content","goal":"Extract the opening price of TSLA stock today and the current date from the Yahoo Finance page."}
+2025-04-13 15:01:16.145 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:01:23.045 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=876, Completion=74, Cumulative Input=29023, Cumulative Completion=652, Total=950, Cumulative Total=29675
+2025-04-13 15:01:23.046 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Extracted from page:
+{'text': 'The page content provided does not contain the opening price of TSLA stock today or the current date. The content appears to be a navigation menu for Yahoo Finance and related sections, but the specific stock data is missing.', 'metadata': {'source': 'Yahoo Finance'}}
+
+2025-04-13 15:01:23.046 | INFO     | open_manus.app.agent.base:run:141 - Executing step 8/20
+2025-04-13 15:01:34.969 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=5262, Completion=68, Cumulative Input=34285, Cumulative Completion=720, Total=5330, Cumulative Total=35005
+2025-04-13 15:01:34.969 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: It seems the extraction tool is still unable to locate the required data. Let me try an alternative approach by navigating to the "Historical Data" section on Yahoo Finance, where the opening price for today should be listed.
+2025-04-13 15:01:34.970 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:01:34.970 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:01:34.970 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"click_element","index":5}
+2025-04-13 15:01:34.970 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:01:35.085 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Clicked element at index 5
+2025-04-13 15:01:35.085 | INFO     | open_manus.app.agent.base:run:141 - Executing step 9/20
+2025-04-13 15:01:44.169 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=5669, Completion=76, Cumulative Input=39954, Cumulative Completion=796, Total=5745, Cumulative Total=40750
+2025-04-13 15:01:44.170 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: It appears the click action navigated to an unintended page (a Taboola ad). Let's switch back to the original tab (Tesla stock page on Yahoo Finance) and try a different approach to locate the "Historical Data" section.
+2025-04-13 15:01:44.170 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:01:44.170 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:01:44.170 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"switch_tab","tab_id":0}
+2025-04-13 15:01:44.170 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:01:44.175 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Switched to tab 0
+2025-04-13 15:01:44.176 | INFO     | open_manus.app.agent.base:run:141 - Executing step 10/20
+2025-04-13 15:01:50.568 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=6084, Completion=51, Cumulative Input=46038, Cumulative Completion=847, Total=6135, Cumulative Total=46885
+2025-04-13 15:01:50.569 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: It seems the tab switch did not resolve the issue. Let's close the unintended tab and return to the original Tesla stock page on Yahoo Finance.
+2025-04-13 15:01:50.569 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:01:50.569 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:01:50.569 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"close_tab"}
+2025-04-13 15:01:50.569 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:01:50.575 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Closed current tab
+2025-04-13 15:01:50.575 | INFO     | open_manus.app.agent.base:run:141 - Executing step 11/20
+2025-04-13 15:01:59.096 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=6388, Completion=60, Cumulative Input=52426, Cumulative Completion=907, Total=6448, Cumulative Total=53333
+2025-04-13 15:01:59.097 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: Now that we're back on the Tesla stock page, let's try to locate the "Historical Data" section by scrolling further down and then extracting the relevant information.
+2025-04-13 15:01:59.097 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:01:59.097 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:01:59.097 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"scroll_down","scroll_amount":1000}
+2025-04-13 15:01:59.097 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:01:59.102 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Scrolled down by 1000 pixels
+2025-04-13 15:01:59.102 | INFO     | open_manus.app.agent.base:run:141 - Executing step 12/20
+2025-04-13 15:02:10.060 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=6706, Completion=73, Cumulative Input=59132, Cumulative Completion=980, Total=6779, Cumulative Total=60112
+2025-04-13 15:02:10.060 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: Let's now attempt to extract the opening price of TSLA stock today and the current date from the visible content on the Yahoo Finance page.
+2025-04-13 15:02:10.060 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:02:10.060 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:02:10.060 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"extract_content","goal":"Extract the opening price of TSLA stock today and the current date from the Yahoo Finance page."}
+2025-04-13 15:02:10.060 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:02:16.280 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=876, Completion=72, Cumulative Input=60008, Cumulative Completion=1052, Total=948, Cumulative Total=61060
+2025-04-13 15:02:16.280 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Extracted from page:
+{'text': 'The page content provided does not contain the opening price of TSLA stock today or the current date. The content appears to be a navigation menu or error message from Yahoo Finance without the specific stock data.', 'metadata': {'source': 'Yahoo Finance'}}
+
+2025-04-13 15:02:16.280 | INFO     | open_manus.app.agent.base:run:141 - Executing step 13/20
+2025-04-13 15:02:26.777 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=7090, Completion=90, Cumulative Input=67098, Cumulative Completion=1142, Total=7180, Cumulative Total=68240
+2025-04-13 15:02:26.777 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: Since the extraction tool is unable to locate the required data, let's try a different approach by navigating directly to the "Historical Data" section of the Tesla stock page on Yahoo Finance, where the opening price for today should be listed.
+2025-04-13 15:02:26.777 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:02:26.777 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:02:26.777 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"go_to_url","url":"https://finance.yahoo.com/quote/TSLA/history?p=TSLA"}
+2025-04-13 15:02:26.777 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:02:28.282 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Navigated to https://finance.yahoo.com/quote/TSLA/history?p=TSLA
+2025-04-13 15:02:28.282 | INFO     | open_manus.app.agent.base:run:141 - Executing step 14/20
+2025-04-13 15:02:39.091 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=7455, Completion=78, Cumulative Input=74553, Cumulative Completion=1220, Total=7533, Cumulative Total=75773
+2025-04-13 15:02:39.092 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: Now that we're on the "Historical Data" page for Tesla (TSLA), let's extract the opening price for today and the current date from the table.
+2025-04-13 15:02:39.092 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:02:39.092 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:02:39.092 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"extract_content","goal":"Extract the opening price of TSLA stock today and the current date from the historical data table."}
+2025-04-13 15:02:39.092 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:02:44.235 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=882, Completion=35, Cumulative Input=75435, Cumulative Completion=1255, Total=917, Cumulative Total=76690
+2025-04-13 15:02:44.235 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Extracted from page:
+{'text': 'Oops, something went wrong', 'metadata': {'source': 'Page content'}}
+
+2025-04-13 15:02:44.235 | INFO     | open_manus.app.agent.base:run:141 - Executing step 15/20
+2025-04-13 15:02:51.780 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=7813, Completion=60, Cumulative Input=83248, Cumulative Completion=1315, Total=7873, Cumulative Total=84563
+2025-04-13 15:02:51.780 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: It seems the extraction tool encountered an error. Let's manually scroll down the page to ensure the historical data table is fully loaded and visible, then attempt the extraction again.
+2025-04-13 15:02:51.780 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:02:51.780 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:02:51.780 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"scroll_down","scroll_amount":500}
+2025-04-13 15:02:51.781 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:02:51.783 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Scrolled down by 500 pixels
+2025-04-13 15:02:51.783 | INFO     | open_manus.app.agent.base:run:141 - Executing step 16/20
+2025-04-13 15:03:02.290 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=8134, Completion=79, Cumulative Input=91382, Cumulative Completion=1394, Total=8213, Cumulative Total=92776
+2025-04-13 15:03:02.290 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: Now that the page has been scrolled down, let's attempt to extract the opening price of TSLA stock today and the current date from the historical data table again.
+2025-04-13 15:03:02.290 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:03:02.290 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:03:02.290 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"extract_content","goal":"Extract the opening price of TSLA stock today and the current date from the historical data table."}
+2025-04-13 15:03:02.290 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:03:09.828 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=882, Completion=69, Cumulative Input=92264, Cumulative Completion=1463, Total=951, Cumulative Total=93727
+2025-04-13 15:03:09.829 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Extracted from page:
+{'text': 'The page content does not contain the historical data table or the opening price of TSLA stock today. The page appears to be an error message or a navigation menu without the required financial data.', 'metadata': {'source': 'Page content analysis'}}
+
+2025-04-13 15:03:09.829 | INFO     | open_manus.app.agent.base:run:141 - Executing step 17/20
+2025-04-13 15:03:18.773 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=8526, Completion=88, Cumulative Input=100790, Cumulative Completion=1551, Total=8614, Cumulative Total=102341
+2025-04-13 15:03:18.773 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: It appears that the Yahoo Finance page is not displaying the historical data table as expected, possibly due to a loading issue or an ad blocker interfering with the content. Let's try refreshing the page to ensure the data loads correctly.
+2025-04-13 15:03:18.773 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:03:18.773 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:03:18.773 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"go_to_url","url":"https://finance.yahoo.com/quote/TSLA/history?p=TSLA"}
+2025-04-13 15:03:18.773 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:03:19.873 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Navigated to https://finance.yahoo.com/quote/TSLA/history?p=TSLA
+2025-04-13 15:03:19.873 | INFO     | open_manus.app.agent.base:run:141 - Executing step 18/20
+2025-04-13 15:03:32.955 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=8889, Completion=55, Cumulative Input=109679, Cumulative Completion=1606, Total=8944, Cumulative Total=111285
+2025-04-13 15:03:32.955 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: Let's try scrolling down the page to ensure the historical data table is fully loaded and then attempt to extract the opening price and current date.
+2025-04-13 15:03:32.955 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:03:32.955 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:03:32.955 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"scroll_down","scroll_amount":1000}
+2025-04-13 15:03:32.955 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:03:32.957 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Scrolled down by 1000 pixels
+2025-04-13 15:03:32.958 | INFO     | open_manus.app.agent.base:run:141 - Executing step 19/20
+2025-04-13 15:03:40.443 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=9206, Completion=45, Cumulative Input=118885, Cumulative Completion=1651, Total=9251, Cumulative Total=120536
+2025-04-13 15:03:40.444 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: 
+2025-04-13 15:03:40.444 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:03:40.444 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:03:40.444 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"extract_content","goal":"Extract the opening price of TSLA stock today and the current date from the historical data table."}
+2025-04-13 15:03:40.444 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:03:47.115 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=882, Completion=71, Cumulative Input=119767, Cumulative Completion=1722, Total=953, Cumulative Total=121489
+2025-04-13 15:03:47.115 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Extracted from page:
+{'text': 'The page content does not contain the historical data table for Tesla, Inc. (TSLA) stock, including the opening price and current date. The page appears to be an error or incomplete.', 'metadata': {'source': 'Page content analysis'}}
+
+2025-04-13 15:03:47.115 | INFO     | open_manus.app.agent.base:run:141 - Executing step 20/20
+2025-04-13 15:03:57.881 | INFO     | open_manus.app.llm:update_token_count:250 - Token usage: Input=9565, Completion=88, Cumulative Input=129332, Cumulative Completion=1810, Total=9653, Cumulative Total=131142
+2025-04-13 15:03:57.881 | INFO     | open_manus.app.agent.toolcall:think:81 - ✨ Manus's thoughts: It seems the Yahoo Finance page is not displaying the historical data table as expected. As an alternative, let's try using a different financial data source, such as MarketWatch, to retrieve the opening price and current date for Tesla (TSLA).
+2025-04-13 15:03:57.882 | INFO     | open_manus.app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-04-13 15:03:57.882 | INFO     | open_manus.app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-04-13 15:03:57.882 | INFO     | open_manus.app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"web_search","query":"TSLA stock price today opening price and current date site:marketwatch.com"}
+2025-04-13 15:03:57.882 | INFO     | open_manus.app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-04-13 15:03:57.882 | INFO     | open_manus.app.tool.web_search:_try_all_engines:299 - 🔎 Attempting search with Google...
+2025-04-13 15:03:59.443 | WARNING  | open_manus.app.tool.web_search:fetch_content:132 - Failed to fetch content from https://www.marketwatch.com/investing/stock/tsla: HTTP 401
+2025-04-13 15:04:00.161 | INFO     | open_manus.app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Search results for 'TSLA stock price today opening price and current date site:marketwatch.com':
+
+1. Tesla Inc. Stock Quote (U.S.: Nasdaq) - TSLA - MarketWatch
+   URL: https://www.marketwatch.com/investing/stock/tsla
+   Description:  Tesla Inc. ; Open $251.84 ; Day Range 241.36 - 257.74 ; 52 Week Range 138.80 - 488.54 ; Market Cap $811.56B ; Public Float 2.8B ... 
+
+Metadata:
+- Total results: 1
+- Language: en
+- Country: us

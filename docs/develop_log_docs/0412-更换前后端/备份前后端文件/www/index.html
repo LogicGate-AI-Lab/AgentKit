@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>问CFO - LogicGate</title>
+  <style>
+    /* 页面整体样式 */
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;    /* 水平居中 */
+      height: 100vh;         /* 占满视口高度 */
+      box-sizing: border-box;
+    }
+
+    /* 标题 */
+    h1 {
+      margin: 0;
+      padding: 10px;
+    }
+
+    /* 聊天容器：固定宽度，固定/最大高度，超出滚动 */
+    #chatbox {
+      width: 80%;
+      max-width: 700px;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px 0;
+      flex: 1;                    /* 占用剩余空间，让输入区固定在底部 */
+      overflow-y: auto;           /* 滚动条 */
+    }
+
+    /* 消息气泡的简单样式 */
+    .msg {
+      margin: 10px 0;
+      line-height: 1.5;
+      word-wrap: break-word;      /* 长内容自动换行 */
+    }
+    .user {
+      text-align: right;
+      color: blue;
+    }
+    .bot {
+      text-align: left;
+      color: green;
+    }
+
+    /* 底部输入区域容器 */
+    .input-container {
+      width: 80%;
+      max-width: 700px;
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    /* 输入框与按钮样式 */
+    input {
+      flex: 1;                    /* 输入框自动扩展 */
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      border-radius: 4px;
+      border: none;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>问CFO 🤖</h1>
+
+  <!-- 聊天框 -->
+  <div id="chatbox"></div>
+
+  <!-- 底部输入区域 -->
+  <div class="input-container">
+    <input id="question" placeholder="请输入您的财务问题..." />
+    <button onclick="send()">发送</button>
+  </div>
+
+  <script>
+    const chatbox = document.getElementById("chatbox");
+    const input = document.getElementById("question");
+
+    // 往聊天框里添加一条消息
+    function addMessage(content, sender) {
+      const div = document.createElement("div");
+      div.className = `msg ${sender}`;
+      div.innerText = content;
+      chatbox.appendChild(div);
+      // 保持滚动条在底部
+      chatbox.scrollTop = chatbox.scrollHeight;
+      return div; // 返回 div 以便后续更新
+    }
+
+    // 页面加载后，先显示一条CFO的欢迎话
+    window.addEventListener("DOMContentLoaded", () => {
+      addMessage(
+        "CFO：您好，我是您的CFO，您有什么问题可以在下面对话框输入然后发送给我，我可以帮您分析。由于我还在内测阶段，暂时没有保存功能。另外，如果您的问题太难，我可能需要思考一会儿，所以请不要太着急哈！",
+        "bot"
+      );
+    });
+
+    // 发送消息
+    async function send() {
+      const q = input.value.trim();
+      if (!q) return;
+
+      // 显示用户消息
+      addMessage("你：" + q, "user");
+      input.value = "";
+
+      // 先插入空的 bot 消息，后面逐字填充
+      const botDiv = addMessage("CFO：", "bot");
+
+      try {
+        // 如果是本地开发:
+        // const res = await fetch("http://127.0.0.1:8000/api/chat", {
+        // 如果是上线:
+        // const res = await fetch("/api/chat", {
+        const res = await fetch("http://127.0.0.1:8000/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: q })
+        });
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder("utf-8");
+        let result = "";
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value, { stream: true });
+          result += chunk;
+          botDiv.innerText = "CFO：" + result;
+          // 保持滚动条在底部
+          chatbox.scrollTop = chatbox.scrollHeight;
+        }
+      } catch (err) {
+        botDiv.innerText = "CFO：出错了，请稍后再试。";
+      }
+    }
+
+    // 回车发送
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        send();
+      }
+    });
+  </script>
+</body>
+</html>

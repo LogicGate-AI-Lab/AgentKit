@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>问CFO - LogicGate</title>
+  <style>
+    body { font-family: Arial; margin: 0; padding: 20px; background: #f5f5f5; }
+    h1 { text-align: center; }
+    #chatbox { max-width: 700px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+    .msg { margin: 10px 0; }
+    .user { text-align: right; color: blue; }
+    .bot { text-align: left; color: green; }
+    input, button { padding: 10px; margin-top: 10px; width: 80%; }
+    button { width: 18%; }
+  </style>
+</head>
+<body>
+  <h1>问CFO 🤖</h1>
+  <div id="chatbox"></div>
+  <div style="text-align:center;">
+    <input id="question" placeholder="请输入您的财务问题..." />
+    <button onclick="send()">发送</button>
+  </div>
+  <script>
+    const chatbox = document.getElementById("chatbox");
+    const input = document.getElementById("question");
+  
+    function addMessage(content, sender) {
+      const div = document.createElement("div");
+      div.className = `msg ${sender}`;
+      div.innerText = content;
+      chatbox.appendChild(div);
+      chatbox.scrollTop = chatbox.scrollHeight;
+      return div; // 返回 div 以便更新内容
+    }
+  
+    async function send() {
+      const q = input.value.trim();
+      if (!q) return;
+  
+      const userDiv = addMessage("你：" + q, "user");
+      input.value = "";
+  
+      const botDiv = addMessage("CFO：", "bot");  // 先插入空的 div
+  
+      try {
+        // 上线的话要用这行： const res = await fetch("/api/chat", {
+        // 改成下面这个是为了用绝对地址，这样本地开发就不用使用nginx反代了
+        const res = await fetch("http://127.0.0.1:8000/api/chat", {    
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question: q })
+        });
+  
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder("utf-8");
+        let result = "";
+  
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value, { stream: true });
+          result += chunk;
+          botDiv.innerText = "CFO：" + result;
+        }
+  
+      } catch (err) {
+        botDiv.innerText = "CFO：出错了，请稍后再试。";
+      }
+    }
+  
+    // ✅ 回车发送
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        send();
+      }
+    });
+  </script>
+  
+</body>
+</html>

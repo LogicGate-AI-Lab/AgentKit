@@ -1,0 +1,12 @@
+# IGNORE ALL KEY FILES
+key/key.py
+key/manus_config/config.toml
+
+# 忽略所有的 __pycache__ 目录
+__pycache__/
+*/__pycache__/
+**/__pycache__/
+
+# 忽略所有的 .pyc, .pyo, .pyd 文件
+*.py[cod]
+*$py.class

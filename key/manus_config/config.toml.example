@@ -1,0 +1,51 @@
+##############################
+# OpenManus 配置文件示例
+# 文件名建议为：config.toml
+##############################
+
+# [llm] 部分：用于配置调用 OpenAI API 的 LLM 参数
+[llm]
+model = "deepseek-chat"                # 你可以选择其他 OpenAI 模型，例如 gpt-3.5-turbo
+base_url = "https://api.deepseek.com"     # OpenAI API 端点
+api_key = "...."             # 请将此处替换为你实际的 OpenAI API Key
+# max_tokens = 2048                           # 最大 token 数量，根据需要调整
+# temperature = 0.7                           # 控制生成文本的随机性（0.0 为确定性）
+
+# [llm.vision] 部分：如果你有视觉相关的模型配置（可选）
+[llm.vision]
+# 如果不使用视觉模型，可保持为空或注释掉下面行
+model = ""
+# base_url = ""
+# api_key = ""
+
+# [browser] 部分：自动化浏览器设置，用于实现网页操作等功能
+[browser]
+headless = true                           # 是否以无头模式运行浏览器（true 表示不显示界面）
+# additional_params 可选，用于传递额外启动参数
+additional_params = "--disable-gpu --no-sandbox"
+
+# [browser.proxy] 部分：如果你需要通过代理访问
+[browser.proxy]
+# url = "http://your-proxy.example.com"
+# port = 8080
+
+# [search] 部分：配置搜索功能参数
+[search]
+engine = "google"                         # 搜索引擎选项，如 "google" 或 "duckduckgo"
+language = "en"                           # 搜索语言
+country = "us"                            # 搜索区域
+max_results = 10                          # 返回的最大搜索结果数量
+
+# [sandbox] 部分：沙箱环境配置（用于隔离执行任务）
+[sandbox]
+enabled = true                            # 是否启用沙箱环境
+docker_image = "python:3.12-slim"           # 使用的 Docker 镜像
+workdir = "/workspace"                      # 工作目录路径
+cpu_limit = "1.0"                           # CPU 限制（单位：核心数）
+memory_limit = "512m"                       # 内存限制
+
+# [mcp] 部分：MCP 模块的配置（与其他模块或服务通信）
+[mcp]
+server_reference = "app.mcp.server"         # MCP 服务实现模块引用
+connection_type = "stdio"                   # 连接方式，可选 "stdio" 或 "sse"
+server_url = "http://127.0.0.1:8000/sse"      # SSE 连接时的服务器 URL
