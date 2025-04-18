@@ -4,6 +4,12 @@
 
 ---
 
+## Version
+
+- Latest **V0.11**: Update front end and prompt backend.
+
+---
+
 ## 📁 Project Structure
 
 ```
