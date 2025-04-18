@@ -1,0 +1,31 @@
+2025-04-18 14:09:47,268 - app.logger - INFO - Application started, logs saved to: /home/jeffliu/projects_ubuntu/AgentKit/app/log/2025-04-18_14-09-47.log
+2025-04-18 14:09:47,268 - app.logger - INFO - Open Manus logs saved to: /home/jeffliu/projects_ubuntu/AgentKit/app/log/manus_2025-04-18_14-09-47.log
+2025-04-18 14:09:48,212 - root - INFO - Anonymized telemetry enabled. See https://docs.browser-use.com/development/telemetry for more information.
+2025-04-18 14:09:48,663 - py.warnings - WARNING - /home/jeffliu/projects_ubuntu/AgentKit/app/interface/interface.py:122: UserWarning: You have not specified a value for the `type` parameter. Defaulting to the 'tuples' format for chatbot messages, but this is deprecated and will be removed in a future version of Gradio. Please set type='messages' instead, which uses openai-style dictionaries with 'role' and 'content' keys.
+  chatbot = gr.Chatbot(
+
+2025-04-18 14:09:48,871 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-04-18 14:09:48,881 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-18 14:09:49,003 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-18 14:10:08,177 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:10:14,652 - app.logger - INFO - Extracted tool status: True
+2025-04-18 14:10:14,652 - app.logger - INFO - Extracted tool content: Use browser to search for the paper "Play Atari with Reinforcement Learning" and find the PDF file to download it.
+2025-04-18 14:10:14,653 - app.logger - INFO - Starting tool request processing: Use browser to search for the paper "Play Atari with Reinforcement Learning" and find the PDF file to download it.
+2025-04-18 14:10:14,759 - app.logger - INFO - Submitting request to Open Manus: Use browser to search for the paper "Play Atari with Reinforcement Learning" and find the PDF file to download it.
+2025-04-18 14:10:15,133 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:10:20,980 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:10:32,198 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:10:38,549 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:10:45,955 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:10:53,113 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:11:00,045 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:11:04,946 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:11:13,616 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:11:23,174 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:11:33,192 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:11:40,571 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:11:47,600 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:11:52,361 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:11:56,982 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:12:01,911 - app.logger - INFO - Open Manus toolchain execution completed
+2025-04-18 14:12:01,911 - app.logger - INFO - Cleaning up Open Manus resources

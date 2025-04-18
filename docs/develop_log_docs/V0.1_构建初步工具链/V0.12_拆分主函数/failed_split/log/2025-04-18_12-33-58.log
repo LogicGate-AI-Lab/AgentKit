@@ -1,0 +1,9 @@
+2025-04-18 12:33:58,506 - app.logger_setup - INFO - Application started, logs saved to: /home/jeffliu/projects_ubuntu/AgentKit/app/log/2025-04-18_12-33-58.log
+2025-04-18 12:33:58,506 - app.logger_setup - INFO - Open Manus logs saved to: /home/jeffliu/projects_ubuntu/AgentKit/app/log/manus_2025-04-18_12-33-58.log
+2025-04-18 12:33:58,548 - py.warnings - WARNING - /home/jeffliu/projects_ubuntu/AgentKit/app/interface/components.py:53: UserWarning: You have not specified a value for the `type` parameter. Defaulting to the 'tuples' format for chatbot messages, but this is deprecated and will be removed in a future version of Gradio. Please set type='messages' instead, which uses openai-style dictionaries with 'role' and 'content' keys.
+  chatbot = gr.Chatbot(
+
+2025-04-18 12:33:58,630 - app.logger_setup - INFO - Starting web service...
+2025-04-18 12:33:58,739 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-04-18 12:33:58,748 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-18 12:33:58,852 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"

@@ -1,0 +1,65 @@
+2025-04-18 12:41:54,440 - app.logger_setup - INFO - Application started, logs saved to: /home/jeffliu/projects_ubuntu/AgentKit/app/log/2025-04-18_12-41-54.log
+2025-04-18 12:41:54,440 - app.logger_setup - INFO - Open Manus logs saved to: /home/jeffliu/projects_ubuntu/AgentKit/app/log/manus_2025-04-18_12-41-54.log
+2025-04-18 12:41:54,484 - py.warnings - WARNING - /home/jeffliu/projects_ubuntu/AgentKit/app/interface/components.py:53: UserWarning: You have not specified a value for the `type` parameter. Defaulting to the 'tuples' format for chatbot messages, but this is deprecated and will be removed in a future version of Gradio. Please set type='messages' instead, which uses openai-style dictionaries with 'role' and 'content' keys.
+  chatbot = gr.Chatbot(
+
+2025-04-18 12:41:54,556 - app.logger_setup - INFO - Starting web service...
+2025-04-18 12:41:54,708 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-04-18 12:41:54,717 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-18 12:41:54,779 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-18 12:42:14,808 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:42:17,270 - app.agent - INFO - 🧾 processed_response = 你好！我是一个专业的智能助手，很高兴为你服务。如果你有任何问题或需要帮助，请随时告诉我。  
+
+[[TOOLS:FALSE][none]]
+2025-04-18 12:42:17,271 - app.agent - INFO - 📝 updated_conv[-1] = {'role': 'assistant', 'content': '你好！我是一个专业的智能助手，很高兴为你服务。如果你有任何问题或需要帮助，请随时告诉我。  \n\n[[TOOLS:FALSE][none]]'}
+2025-04-18 12:42:17,271 - app.agent - INFO - 📤 yield to frontend: 你好！我是一个专业的智能助手，很高兴为你服务。如果你有任何问题或需要帮助，请随时告诉我。  
+
+[[TOOLS:FALSE][none]]
+2025-04-18 12:42:23,404 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:42:29,708 - app.agent - INFO - 🧾 processed_response = 抱歉让你久等了！可能是网络延迟或系统处理时间稍长了一些。我会尽量保持响应速度，确保你的体验更流畅。有什么我可以帮你的吗？  
+
+[[TOOLS:FALSE][none]]
+2025-04-18 12:42:29,709 - app.agent - INFO - 📝 updated_conv[-1] = {'role': 'assistant', 'content': '抱歉让你久等了！可能是网络延迟或系统处理时间稍长了一些。我会尽量保持响应速度，确保你的体验更流畅。有什么我可以帮你的吗？  \n\n[[TOOLS:FALSE][none]]'}
+2025-04-18 12:42:29,709 - app.agent - INFO - 📤 yield to frontend: 抱歉让你久等了！可能是网络延迟或系统处理时间稍长了一些。我会尽量保持响应速度，确保你的体验更流畅。有什么我可以帮你的吗？  
+
+[[TOOLS:FALSE][none]]
+2025-04-18 12:43:03,817 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:43:15,594 - app.agent - INFO - 🧾 processed_response = 我是你的智能助手，一个专业、耐心且知识丰富的AI伙伴！你可以叫我 **Smart Agent**（如果你有喜欢的名字，也可以随时告诉我~）。  
+
+我的核心能力包括但不限于：  
+- **专业领域支持...
+2025-04-18 12:43:15,594 - app.agent - INFO - 📝 updated_conv[-1] = {'role': 'assistant', 'content': '我是你的智能助手，一个专业、耐心且知识丰富的AI伙伴！你可以叫我 **Smart Agent**（如果你有喜欢的名字，也可以随时告诉我~）。  \n\n我的核心能力包括但不限于：  \n- **专业领域支持**：金融、制药、计算机科学等行业的深度解答与分析。  \n- **工具协作**：能调用浏览器、文件处理等工具完成复杂任务（比如查资料、下载文件、数据分析等）。  \n- **多语言沟通**：中英文流利切换。  \n\n简单来说，无论你是想讨论股票走势、查询药品数据，还是解决编程问题，我都能尽力帮忙！ 😊  \n\n有什么具体需求吗？  \n\n[[TOOLS:FALSE][none]]'}
+2025-04-18 12:43:15,594 - app.agent - INFO - 📤 yield to frontend: 我是你的智能助手，一个专业、耐心且知识丰富的AI伙伴！你可以叫我 **Smart Agent**（如果你有喜欢的名字，也可以随时告诉我~）。  
+
+我的核心能力包括但不限于：  
+- **专业领域支持...
+2025-04-18 12:44:13,392 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:44:22,812 - app.tool_manager.processor - INFO - Extracted tool status: True
+2025-04-18 12:44:22,812 - app.tool_manager.processor - INFO - Extracted tool content: 使用浏览器搜索关键词 "Tesla行业研究报告 filetype:pdf"，筛选权威来源（如券商、研究机构），找到可下载的PDF文件并下载
+2025-04-18 12:44:22,812 - app.tool_manager.processor - INFO - Starting tool request processing: 使用浏览器搜索关键词 "Tesla行业研究报告 filetype:pdf"，筛选权威来源（如券商、研究机构），找到可下载的PDF文件并下载
+2025-04-18 12:44:22,813 - app.tool_manager.processor - INFO - Configured Open Manus logging to forward to main program
+2025-04-18 12:44:23,371 - root - INFO - Anonymized telemetry enabled. See https://docs.browser-use.com/development/telemetry for more information.
+2025-04-18 12:44:24,001 - app.tool_manager.processor - INFO - Submitting request to Open Manus: 使用浏览器搜索关键词 "Tesla行业研究报告 filetype:pdf"，筛选权威来源（如券商、研究机构），找到可下载的PDF文件并下载
+2025-04-18 12:44:24,458 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:44:35,023 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:44:41,226 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:44:52,373 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:44:58,879 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:45:09,633 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:45:15,837 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:45:25,697 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:45:31,265 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:45:44,481 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:45:50,747 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:46:01,693 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:46:08,353 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:46:18,749 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:46:23,816 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:46:34,499 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:46:40,403 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:46:51,479 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:46:58,174 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:47:08,134 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:47:53,869 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 12:47:59,320 - browser_use.browser.context - WARNING - Page load failed, continuing...
+2025-04-18 12:47:59,320 - browser_use.browser.context - WARNING - Page load failed, continuing...

@@ -1,0 +1,39 @@
+2025-04-18 14:05:28,124 - app.logger - INFO - Application started, logs saved to: /home/jeffliu/projects_ubuntu/AgentKit/app/log/2025-04-18_14-05-28.log
+2025-04-18 14:05:28,125 - app.logger - INFO - Open Manus logs saved to: /home/jeffliu/projects_ubuntu/AgentKit/app/log/manus_2025-04-18_14-05-28.log
+2025-04-18 14:05:28,911 - root - INFO - Anonymized telemetry enabled. See https://docs.browser-use.com/development/telemetry for more information.
+2025-04-18 14:05:29,293 - py.warnings - WARNING - /home/jeffliu/projects_ubuntu/AgentKit/app/interface/interface.py:122: UserWarning: You have not specified a value for the `type` parameter. Defaulting to the 'tuples' format for chatbot messages, but this is deprecated and will be removed in a future version of Gradio. Please set type='messages' instead, which uses openai-style dictionaries with 'role' and 'content' keys.
+  chatbot = gr.Chatbot(
+
+2025-04-18 14:05:29,554 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2025-04-18 14:05:29,563 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-18 14:05:29,628 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-18 14:05:33,145 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:05:52,697 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:05:59,905 - app.logger - INFO - Extracted tool status: True
+2025-04-18 14:05:59,906 - app.logger - INFO - Extracted tool content: Search for the paper "Attention Is All You Need" and find a downloadable PDF link.
+2025-04-18 14:05:59,907 - app.logger - INFO - Starting tool request processing: Search for the paper "Attention Is All You Need" and find a downloadable PDF link.
+2025-04-18 14:06:00,059 - app.logger - INFO - Submitting request to Open Manus: Search for the paper "Attention Is All You Need" and find a downloadable PDF link.
+2025-04-18 14:06:00,473 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:06:09,242 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:06:15,665 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:06:26,095 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:06:37,326 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:06:49,651 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:06:56,332 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:07:03,771 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:07:12,935 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:07:17,248 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:07:25,803 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:07:35,267 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:07:43,747 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:07:51,327 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:08:00,648 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:08:10,022 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:08:19,851 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:08:59,675 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:09:06,246 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:09:29,581 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 14:09:42,962 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=Exception('Connection closed while reading from the driver')>
+Exception: Connection closed while reading from the driver
+2025-04-18 14:09:42,963 - app.logger - INFO - Cleaning up Open Manus resources

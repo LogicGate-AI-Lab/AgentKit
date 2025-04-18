@@ -23,6 +23,7 @@ SYSTEM_PROMPT = (
     "   – If no tool is required, instead append `[[TOOLS:FALSE][none]]`.\n"
     "5. After each tool run, read the result (which will be injected back to "
     "you with role = tool) and decide the next action until the task is solved.\n"
+    "6. IMPORTANT: IF YOU THINK IT IS FINISHED AND NEED 0 TOOLS TO USE, YOU SHOULD TERMINATE THE TASK. YOU CAN CHOOSE TERMINATE TOOLS TO STOP THE TASKS"
 )
 
 NEXT_STEP_PROMPT = '''
@@ -36,7 +37,7 @@ NEXT_STEP_PROMPT = '''
 | **download_file** | Directly download a file (PDF, CSV, IMG …) from a URL to local disk | `url`, `filename?` |
 | **analyze_pdf_file** | After a PDF is downloaded, extract key financial figures & summarise into Markdown | `path` |
 | **create_chat_completion** | (internal) Use LLMs again inside a tool chain – usually called by you, no action required | |
-| **terminate** | When ALL user requirements are met **or** you cannot proceed, call once with `status="success"/"failure"` | `status` |
+| **terminate** | When ALL user requirements are met **or** you cannot proceed **or** you think no more tools need to use, call once with `status="success"/"failure"` | `status` |
 
 #### Tool‑calling syntax
 *Speak to the user normally*, then append one hidden directive, e.g.:
@@ -57,7 +58,7 @@ The answer is 42. [[TOOLS:FALSE][none]]
 1. **search** → `browser_use` with `action="web_search"`  
 2. **download** → `download_file` with the link found  
 3. **analyse** → `analyze_pdf_file` on the downloaded path  
-4. **finish** → `terminate status="success"`
+4. **finish** → use `terminate` tool and let `terminate status="success"`
 
 Always explain to the user **what** you’re doing and **why**, but keep the raw tool directives hidden.
 
