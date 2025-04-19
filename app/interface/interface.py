@@ -51,10 +51,12 @@ with gr.Blocks(title="Smart Agent", css="""
     # Chat interface component with custom message rendering
     def format_message(msg):
         """Format chat messages to enhance tool progress display"""
-        if isinstance(msg, tuple) and len(msg) == 2:
-            # In tuples format, msg is (user_message, assistant_message)
-            # We'll only format the assistant's message
-            content = msg[1]
+        # For the messages format, msg is a dictionary with 'role' and 'content' keys
+        if isinstance(msg, dict) and 'content' in msg:
+            content = msg['content']
+        elif isinstance(msg, tuple) and len(msg) == 2:
+            # Handle legacy tuple format for backwards compatibility
+            content = msg[1] if msg[0] != 'assistant' else msg[0]
         else:
             # Fallback - shouldn't happen with correct format
             content = str(msg)
@@ -86,8 +88,14 @@ with gr.Blocks(title="Smart Agent", css="""
                 """
             elif len(progress_parts) > 1:
                 formatted_content += progress_parts[1]
-                
-            return (msg[0], formatted_content)
+            
+            # For message format, return updated content
+            if isinstance(msg, dict):
+                return {**msg, 'content': formatted_content}
+            # For legacy tuple format
+            elif isinstance(msg, tuple):
+                return (msg[0], formatted_content)
+            return formatted_content
             
         # Handle execution summary without progress
         elif "[Tool Execution Summary]" in content:
@@ -100,7 +108,13 @@ with gr.Blocks(title="Smart Agent", css="""
                 <div>{parts[1]}</div>
             </div>
             """
-            return (msg[0], formatted_content)
+            
+            # Return appropriate format
+            if isinstance(msg, dict):
+                return {**msg, 'content': formatted_content}
+            elif isinstance(msg, tuple):
+                return (msg[0], formatted_content)
+            return formatted_content
             
         # Handle error messages
         elif "[Error]" in content:
@@ -113,16 +127,23 @@ with gr.Blocks(title="Smart Agent", css="""
                 <div>{parts[1]}</div>
             </div>
             """
-            return (msg[0], formatted_content)
+            
+            # Return appropriate format
+            if isinstance(msg, dict):
+                return {**msg, 'content': formatted_content}
+            elif isinstance(msg, tuple):
+                return (msg[0], formatted_content)
+            return formatted_content
             
         # Regular message - no formatting needed
         return msg
     
-    # Create chatbot with default type (tuples)
+    # Create chatbot with messages type
     chatbot = gr.Chatbot(
         label="Smart Agent Conversation (Continuous Chat)", 
         render=format_message,
         height=600,
+        type="messages"  # Use the recommended format
     )
     
     # State management components
@@ -169,15 +190,15 @@ with gr.Blocks(title="Smart Agent", css="""
         """
         AppConfig.HIDE_TOOLS_CONTENT = value
     
-    # Helper function to convert message format from dictionary to tuples
-    def convert_to_tuples(conversation):
-        """Convert conversation from dict format to tuples format for Gradio Chatbot"""
-        tuples = []
-        for i in range(0, len(conversation), 2):
-            if i+1 < len(conversation):
-                if conversation[i]["role"] == "user" and conversation[i+1]["role"] == "assistant":
-                    tuples.append((conversation[i]["content"], conversation[i+1]["content"]))
-        return tuples
+    # Helper function to convert message format from dictionary to messages format for Gradio Chatbot
+    def convert_to_messages_format(conversation):
+        """Convert conversation to messages format for Gradio Chatbot"""
+        messages = []
+        for msg in conversation:
+            # Only include user and assistant messages (skip system messages if present)
+            if msg["role"] in ["user", "assistant"]:
+                messages.append({"role": msg["role"], "content": msg["content"]})
+        return messages
     
     # Asynchronous function to respond to user messages
     async def respond(user_message, conversation, generating):
@@ -194,13 +215,13 @@ with gr.Blocks(title="Smart Agent", css="""
         """
         # If already generating, ignore new request
         if generating:
-            yield convert_to_tuples(conversation), conversation, user_message, generating
+            yield convert_to_messages_format(conversation), conversation, user_message, generating
             return
         
         # Call chat_with_cfo function to get streaming reply
         async for updated_conv, _debug, is_generating in chat_with_cfo(conversation, user_message):
             # Return updated dialogue history and state
-            yield convert_to_tuples(updated_conv), updated_conv, "", is_generating
+            yield convert_to_messages_format(updated_conv), updated_conv, "", is_generating
     
     # Function to toggle button visibility
     def toggle_button_visibility(generating):
