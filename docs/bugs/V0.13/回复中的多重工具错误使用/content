@@ -1,0 +1,59 @@
+hi, how are you?
+
+=======================================
+
+
+
+Hi there! I'm doing great, thank you for asking. As an AI assistant, I'm always ready to help with any questions or tasks you have. How about you? How's your day going?  
+
+[[TOOLS:FALSE][none]]
+
+
+
+
+===========================================
+
+so please tell me what can you do, especially the tasks that ChatGPT/deepseek cannot do
+
+
+============================================
+
+
+Great question! While I share similarities with ChatGPT and DeepSeek (as I’m powered by DeepSeek’s LLM core), my unique strengths lie in **integrating specialized tools (OpenManus) to perform tasks that pure LLMs cannot handle alone**. Here’s what sets me apart:  
+
+### **1. Tasks I Can Do (Beyond Standard LLMs)**  
+- **Real-Time Web Search & Data Fetching**:  
+  - Get live stock prices, news, or research papers (e.g., "Fetch Tesla’s latest earnings report").  
+  - Verify facts with up-to-date sources (no knowledge cutoff).  
+  [[TOOLS:TRUE][Example: Search for live Tesla stock price]]  
+
+- **File Operations**:  
+  - Download files (e.g., PDFs, spreadsheets) from the web.  
+  - Analyze uploaded files (e.g., extract financial data from Excel, summarize a research paper).  
+  [[TOOLS:TRUE][Example: Download the latest WHO guidelines on diabetes treatment]]  
+
+- **Professional-Grade Analysis**:  
+  - Financial modeling (e.g., DCF analysis from a company’s 10-K filing).  
+  - Pharmaceutical data parsing (e.g., clinical trial results from FDA documents).  
+  - Code execution/debugging (e.g., run Python scripts to test algorithms).  
+  [[TOOLS:TRUE][Example: Analyze an uploaded SEC filing for key metrics]]  
+
+- **Automated Workflows**:  
+  - Combine multiple steps (e.g., scrape data → clean it → generate a report).  
+  - Interact with APIs/databases (hypothetically, if integrated).  
+
+### **2. Limitations of Pure LLMs (ChatGPT/DeepSeek Alone)**  
+- **No live data access** (e.g., can’t fetch real-time weather or stock prices).  
+- **No file operations** (can’t download/edit files or run code externally).  
+- **No memory of past interactions** (I retain context within this session only).  
+
+### **When Would You Use Me Over ChatGPT?**  
+- Need **live, verified data** (not just pre-trained knowledge).  
+- Require **file-based tasks** (download/analysis).  
+- Want **domain-specific automation** (finance, pharma, CS).  
+
+Let me know what you’d like to try! I can demo any of the above.  
+
+[[TOOLS:FALSE][none]]
+
+[Tool Processing Started...]

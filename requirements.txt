@@ -2,6 +2,10 @@
 gradio
 openai
 
+# V0.14
+# watchdog 是一个用于监控文件系统变化的Python库，它能够在文件被创建、修改、删除或移动时触发事件，本项目用它来实现对工作目录文件变化的实时监控。
+watchdog
+
 # Open_Manus
 pydantic~=2.10.6
 openai~=1.66.3
