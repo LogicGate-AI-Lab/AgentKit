@@ -185,8 +185,8 @@ def generate_file_list_html(files):
         return """
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 0; color: #9ca3af;">
             <div style="font-size: 32px; margin-bottom: 10px; opacity: 0.5;">📁</div>
-            <div style="font-size: 14px; margin-bottom: 5px;">暂无文件</div>
-            <div style="font-size: 12px; color: #d1d5db;">上传文件或等待AI生成文件</div>
+            <div style="font-size: 14px; margin-bottom: 5px;">NO FILE NOW</div>
+            <div style="font-size: 12px; color: #d1d5db;">WAITING FOR UPLOADING OR AI's Generating</div>
         </div>
         """
     
